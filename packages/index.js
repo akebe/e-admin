@@ -8,10 +8,13 @@ import AdminTabs from './components/admin-tabs';
 import AdminTabsItem from './components/admin-tabs-item';
 import Error from './components/error';
 import Icon from './components/icon';
-import LoadingBar from './components/loading-bar/src';
+import LoadingBar from './components/loading-bar';
 import View from './components/view';
 
 export default {
+
+  LoadingBar: LoadingBar.instance,
+
   install(Vue, options = {}) {
 
     Vue.use(Admin)
