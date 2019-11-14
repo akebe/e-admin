@@ -1,0 +1,19 @@
+/* 对element的非侵入式样式改造 */
+
+/* 隐藏 el-cascader 的 radio*/
+.ea-cascader__radio-hide {
+  &.el-cascader__dropdown {
+    .el-radio__inner {
+      border: 0;
+      background-color: inherit
+    }
+    .el-radio__input.is-checked .el-radio__inner {
+      background: none
+    }
+    .el-radio {
+      height: 100%;
+      width: 150px;
+      position: absolute;
+    }
+  }
+}

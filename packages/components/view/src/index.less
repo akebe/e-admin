@@ -1,0 +1,38 @@
+@import '../../../style/var';
+
+.ea-view {
+  position:relative ;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 2px;
+  transition: .2s;
+  &.ea-view_style:hover {
+    box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
+  }
+}
+
+.ea-view_style {
+  border: 1px solid @bord-color;
+  background-color: @white;
+}
+
+.ea-view_center {
+  margin: 10px auto
+}
+
+.ea-admin ._body .ea-view{
+  margin-top: 0;
+}
+
+.ea-view_fixed {
+  position: fixed;
+  width: inherit;
+  height: auto;
+  z-index: 10;
+  left: inherit
+}
+
+.ea-view .ea-view_fixed {
+  margin: -10px;
+}

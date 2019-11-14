@@ -1,0 +1,13 @@
+{
+  "admin": "./packages/components/admin/index.js",
+  "admin-header": "./packages/components/admin-header/index.js",
+  "admin-login": "./packages/components/admin-login/index.js",
+  "admin-logo": "./packages/components/admin-logo/index.js",
+  "admin-menu": "./packages/components/admin-menu/index.js",
+  "admin-tabs": "./packages/components/admin-tabs/index.js",
+  "admin-tabs-item": "./packages/components/admin-tabs-item/index.js",
+  "error": "./packages/components/error/index.js",
+  "icon": "./packages/components/icon/index.js",
+  "loading-bar": "./packages/components/loading-bar/index.js",
+  "view": "./packages/components/view/index.js"
+}

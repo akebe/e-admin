@@ -1,0 +1,54 @@
+@import '../../../style/var';
+
+.ea-admin {
+  height: 100%;
+  width: 100%;
+  background-color: @white;
+  position: relative;
+  overflow-y: auto;
+  ._header {
+    width: 100%;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    .__header {
+      width: 100%;
+      overflow: hidden;
+    }
+    .__tabs {
+      width: 100%;
+    }
+  }
+
+  ._side {
+    width: 200px;
+    height: 100%;
+    background-color: #FFF;
+    top: 0;
+    z-index: 1001;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    &.ea--dark {
+      background-color: @theme-dark
+    }
+
+    .el-menu {
+      border-right: 0;
+    }
+  }
+
+  ._body {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    clear: both;
+    box-sizing: border-box;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+  }
+}

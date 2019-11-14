@@ -1,0 +1,79 @@
+{
+  "id": "547807",
+  "name": "e-admin",
+  "font_family": "icon",
+  "css_prefix_text": "ea-icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "224651",
+      "name": "备注",
+      "font_class": "flag",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "1219430",
+      "name": "notices",
+      "font_class": "notices",
+      "unicode": "ee60c",
+      "unicode_decimal": 976396
+    },
+    {
+      "icon_id": "1363827",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "ee602",
+      "unicode_decimal": 976386
+    },
+    {
+      "icon_id": "1433751",
+      "name": "full-screen",
+      "font_class": "fullscreen",
+      "unicode": "ee63f",
+      "unicode_decimal": 976447
+    },
+    {
+      "icon_id": "3323211",
+      "name": "first-page-o",
+      "font_class": "page-arrow-left",
+      "unicode": "ee99e",
+      "unicode_decimal": 977310
+    },
+    {
+      "icon_id": "3323244",
+      "name": "last-page-o",
+      "font_class": "page-arrow-right",
+      "unicode": "ee9a9",
+      "unicode_decimal": 977321
+    },
+    {
+      "icon_id": "3700134",
+      "name": "fullscreen-exit",
+      "font_class": "fullscreen-exit",
+      "unicode": "ee60b",
+      "unicode_decimal": 976395
+    },
+    {
+      "icon_id": "5127300",
+      "name": "dots-vertical",
+      "font_class": "dots-vertical",
+      "unicode": "e77c",
+      "unicode_decimal": 59260
+    },
+    {
+      "icon_id": "11348367",
+      "name": "web_403",
+      "font_class": "404",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "11415707",
+      "name": "403",
+      "font_class": "403",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    }
+  ]
+}

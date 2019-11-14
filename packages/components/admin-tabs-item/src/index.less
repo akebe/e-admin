@@ -1,0 +1,46 @@
+@import '../../../style/var';
+
+.ea-admin_tabs-item {
+  display: inline-block;
+  line-height: @tabs-height;
+  height: @tabs-height;
+  padding: 0 10px;
+  cursor: pointer;
+  color: @text-main;
+  font-size: 13px;
+  img._icon {
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+  }
+
+  .el-icon-close {
+    border-radius: 50%;
+    width: 14px;
+    &::before {
+      display: none;
+    }
+    &:hover {
+      background-color: @tabs-background-color - #333;
+    }
+    &:active {
+      background-color: @tabs-background-color - #555;
+    }
+  }
+
+  &:hover {
+    background-color: @tabs-background-color - #111;
+    .el-icon-close::before {
+      display: inline;
+    }
+  }
+
+  &.is-active {
+    background-color: @white;
+    border-left: @border;
+    border-right: @border;
+    .el-icon-close::before {
+      display: inline;
+    }
+  }
+}

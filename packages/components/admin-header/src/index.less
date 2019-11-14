@@ -1,0 +1,26 @@
+@import '../../../style/var';
+
+.ea-admin_header {
+  width: 100%;
+  height: @header-height;
+  border-bottom: @border;
+  background-color: @white;
+  display: flex;
+
+  ._item {
+    line-height: @header-height;
+    padding: 0 10px;
+    .el-breadcrumb {
+      line-height: @header-height;
+    }
+  }
+
+  ._badge {
+    float: right;
+  }
+
+  ._center {
+    flex: 1;
+  }
+
+}
