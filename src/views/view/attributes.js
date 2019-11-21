@@ -1,0 +1,51 @@
+export default [
+  {
+    prop: 'loading',
+    desc: '是否在view层上显示Loading 加载',
+    type: 'Boolean',
+    enum: '-',
+    default: 'false',
+  },
+  {
+    prop: 'loading-text',
+    desc: '显示在加载图标下方的加载文案',
+    type: 'String',
+    enum: '-',
+    default: '数据加载中',
+  },
+  {
+    prop: 'center',
+    desc: '页面居中配置',
+    type: 'Boolean / Number / String',
+    enum: '-',
+    default: 'false',
+  },
+  {
+    prop: 'scroll-record',
+    desc: '是否记录滚动条高度，需要keep-alive',
+    type: 'Boolean',
+    enum: '-',
+    default: 'true',
+  },
+  {
+    prop: 'default-class',
+    desc: '是否使用默认样式',
+    type: 'Boolean',
+    enum: '-',
+    default: 'true',
+  },
+  {
+    prop: 'padding',
+    desc: '页面padding，默认单位px',
+    type: 'Number / Number',
+    enum: '-',
+    default: '10',
+  },
+  {
+    prop: 'backtop',
+    desc: '是否显示回到顶部按钮',
+    type: 'Boolean',
+    enum: '-',
+    default: 'true',
+  },
+];

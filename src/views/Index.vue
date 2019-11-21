@@ -1,39 +1,37 @@
-<style scoped>
-</style>
-<style>
-</style>
 <template>
-<ea-admin>
-  <template slot="header">
-    <ea-admin-header
-        collapse="false"
-        :notice="0"
-        :user="user"
-        :menu-data="menuData"
-    ></ea-admin-header>
-  </template>
-  <template slot="tabs">
-    <ea-admin-tabs
-        :menu-data="menuData"
-    ></ea-admin-tabs>
-  </template>
-  <template slot="side">
-    <ea-admin-logo
-        name="e-admin"
-        :logo="logo"
-        logo-type="image"
-    ></ea-admin-logo>
-    <ea-admin-menu
-        router
-        :data="menuData"
-        v-model="active"
-    ></ea-admin-menu>
-  </template>
-</ea-admin>
+  <ea-admin>
+    <template v-slot:header>
+      <ea-header
+          :collapse.sync="headerCollapse"
+          :notice="notice"
+          :fullscreen="fullscreen"
+          :nav-data="headerNavData"
+          :user="user"
+      ></ea-header>
+    </template>
+    <template v-slot:tabs>
+      <ea-tabs
+          :collapse.sync="tabsCollapse"
+          :nav-data="tabsNavData"
+      ></ea-tabs>
+    </template>
+    <template v-slot:side>
+      <ea-logo
+          name="e-admin"
+          :logo="logo"
+          v-if="logoVisible"
+          logo-type="image"
+      ></ea-logo>
+      <ea-nav-menu
+          router
+          :data="navData"
+          v-model="active"
+      ></ea-nav-menu>
+    </template>
+  </ea-admin>
 </template>
 <script>
-  /* eslint-disable no-console */
-  import menuData from './menu-data';
+  import navData from './nav-data';
   import logo from '@/assets/logo.svg';
 
   export default {
@@ -48,18 +46,48 @@
           avatar: '',
         },
         unread: 10,
-        menuData,
         collapse: false,
         active: '',
         logo,
+        navData,
+        tabsCollapseActive: true,
+        tabsNavDataActive: true,
+        notice: '',
+        headerCollapseActive: false,
+        fullscreen: true,
+        headerNavDataActive: true,
+        logoVisible: true,
       };
     },
-    computed: {},
+    computed: {
+      tabsCollapse: {
+        get() {
+          return this.tabsCollapseActive ? this.$ea.config.collapse : 'false';
+        },
+        set(v) {
+          this.$ea.config.collapse = v;
+        },
+      },
+      tabsNavData() {
+        return this.tabsNavDataActive ? navData : [];
+      },
+
+      headerCollapse: {
+        get() {
+          return this.headerCollapseActive ? this.$ea.config.collapse : 'false';
+        },
+        set(v) {
+          this.$ea.config.collapse = v;
+        },
+      },
+      headerNavData() {
+        return this.headerNavDataActive ? navData : [];
+      },
+    },
     methods: {},
     created() {
     },
     mounted() {
-      console.log(this.$route);
     },
   };
 </script>

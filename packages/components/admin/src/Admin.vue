@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-  import ConfigMixins, {Config} from '../../../mixins/config';
+  import ConfigMixins from '../../../mixins/config';
 
   export default {
     name: 'EaAdmin',
@@ -39,6 +39,7 @@
       ConfigMixins({
         collapse: [Boolean, String],
         theme: String,
+        home: Object,
         headerAutoHide: Boolean,
         sideMaxWidth: [Number, String],
         sideMinWidth: [Number, String],
@@ -100,7 +101,8 @@
         };
       },
       include() {
-        return Config.page.tabs.map(v => v.name);
+        const tabs = this.$ea.config.page.tabs;
+        return [this.mHome.name].concat(tabs.map(v => v.name));
       },
     },
     methods: {

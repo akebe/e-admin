@@ -74,6 +74,13 @@
       "font_class": "403",
       "unicode": "e605",
       "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "11698416",
+      "name": "logo",
+      "font_class": "e-admin",
+      "unicode": "e634",
+      "unicode_decimal": 58932
     }
   ]
 }

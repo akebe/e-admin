@@ -1,5 +1,7 @@
 import Config from '../../config';
 
+import Package from '../../../package.json';
+
 import '../../assets/iconfont/iconfont.css';
 import '../../assets/iconfont/iconfont.js';
 import '../../style/ea.less';
@@ -36,5 +38,6 @@ function install(Vue, options = {}) {
 export {install};
 
 export default {
+  version: Package.version,
   install,
 };

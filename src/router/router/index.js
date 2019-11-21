@@ -12,7 +12,8 @@ const ProjectSrcRouterIndex = () =>
   import ( /* webpackChunkName: "router-default" */ '@/views/router/project/src/router/index.js.md');
 const ProjectSrcStoreIndex = () =>
   import ( /* webpackChunkName: "router-default" */ '@/views/router/project/src/store/index.js.md');
-
+const ProjectSrcVirewsIndex = () =>
+  import ( /* webpackChunkName: "router-default" */ '@/views/router/project/src/views/Index.vue.md');
 
 export default [
   {
@@ -49,6 +50,10 @@ export default [
       {
         path: 'project/src/store/index.js',
         component: ProjectSrcStoreIndex,
+      },
+      {
+        path: 'project/src/views/Index.vue',
+        component: ProjectSrcVirewsIndex,
       },
       {
         path: '*',

@@ -4,25 +4,29 @@ import RouterEach from './router-each';
 
 import Router from './router/index';
 
+import {Error} from 'e-admin';
+//import {Error} from '../../lib/index.umd.js';
+
 const Index = () =>
   import ( /* webpackChunkName: "index" */ '@/views/Index.vue');
+const Intro = () =>
+  import ( /* webpackChunkName: "index" */ '@/views/intro/Intro.vue');
 const Login = () =>
   import ( /* webpackChunkName: "login" */ '@/views/Login.vue');
 const Install = () =>
-  import ( /* webpackChunkName: "install" */ '@/views/Install.vue');
-const EaAdmin = () =>
-  import ( /* webpackChunkName: "ea-admin" */ '@/views/admin/EaAdmin.vue');
-const EaAdminHeader = () =>
-  import ( /* webpackChunkName: "ea-admin-header" */ '@/views/header/AdminHeader.vue');
-const EaAdminLogo = () =>
-  import ( /* webpackChunkName: "ea-admin-logo" */ '@/views/EaAdminLogo.vue');
-const EaAdminMenu = () =>
-  import ( /* webpackChunkName: "ea-admin-menu" */ '@/views/EaAdminMenu.vue');
-const EaView = () =>
-  import ( /* webpackChunkName: "ea-view" */ '@/views/EaView.vue');
-const Error = () =>
-  import ( /* webpackChunkName: "error" */ '../../packages/components/error/src/Error.vue');
-
+  import ( /* webpackChunkName: "install" */ '@/views/install/Install.vue');
+const Admin = () =>
+  import ( /* webpackChunkName: "ea-admin" */ '@/views/admin/Admin.vue');
+const Header = () =>
+  import ( /* webpackChunkName: "ea-header" */ '@/views/header/Header.vue');
+const Tabs = () =>
+  import ( /* webpackChunkName: "ea-tabs" */ '@/views/tabs/Tabs.vue');
+const Logo = () =>
+  import ( /* webpackChunkName: "ea-logo" */ '@/views/logo/Logo.vue');
+const NavMenu = () =>
+  import ( /* webpackChunkName: "ea-nav-menu" */ '@/views/nav-menu/NavMenu.vue');
+const View = () =>
+  import ( /* webpackChunkName: "ea-view" */ '@/views/view/View.vue');
 
 Vue.use(VueRouter);
 
@@ -40,7 +44,7 @@ const router = new VueRouter({
       children: [
         {
           path: '',
-          component: Install,
+          component: Intro,
         },
         {
           path: '/error/:code',
@@ -57,35 +61,34 @@ const router = new VueRouter({
           component: Install,
         },
         {
-          path: '/ea-admin',
-          name: 'EaAdmin',
-          component: EaAdmin,
+          path: '/admin',
+          name: 'Admin',
+          component: Admin,
         },
         {
-          path: '/ea-admin-header',
-          name: 'AdminHeader',
-          component: EaAdminHeader,
+          path: '/header',
+          name: 'Header',
+          component: Header,
         },
         {
-          path: '/ea-admin-logo',
-          name: 'EaAdminLogo',
-          component: EaAdminLogo,
+          path: '/tabs',
+          name: 'Tabs',
+          component: Tabs,
         },
         {
-          path: '/ea-admin-menu',
-          name: 'EaAdminMenu',
-          component: EaAdminMenu,
-          meta: {
-            tabs: {
-              title: '左侧菜单',
-              icon: 'el-icon-menu',
-            },
-          },
+          path: '/logo',
+          name: 'Logo',
+          component: Logo,
         },
         {
-          path: '/ea-view',
-          name: 'EaView',
-          component: EaView,
+          path: '/nav-menu',
+          name: 'NavMenu',
+          component: NavMenu,
+        },
+        {
+          path: '/view',
+          name: 'View',
+          component: View,
         },
         ...Router,
         {
@@ -100,7 +103,7 @@ const router = new VueRouter({
 /**
  * 路由meta规范
  meta: {
-    childrenAgent: false, // 是否代理子路由 设定为true在tabs及menu中子路由激活的是当前路由
+    childrenAgent: false, // 是否代理子路由 设定为true在tabs及nav-menu中子路由激活的是当前路由
     tabs: {               // 自定义路由tabs 设定为false 不在tabs显示这个路由
       title: '',
       icon: '',

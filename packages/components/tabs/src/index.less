@@ -1,0 +1,24 @@
+@import '../../../style/var';
+
+.ea-tabs {
+  width: 100%;
+  height: @tabs-height;
+  background-color: @tabs-background-color;
+  border-bottom: @border;
+  ._wrap {
+    display: flex;
+    width: 100%;
+    height: @tabs-height;
+    ._scroll {
+      height: @tabs-height;
+      display: block;
+      flex: 1;
+      overflow: hidden;
+      ._nav{
+        white-space: nowrap;
+        transition: transform .3s;
+      }
+    }
+  }
+
+}

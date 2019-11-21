@@ -55,11 +55,6 @@ pre code {
   color: #333;
 }
 
-.markdown a {
-  color: #009a61;
-  text-decoration: none;
-}
-
 .markdown h1 {
   font-size: 2em;
   line-height: 1.75em
@@ -82,7 +77,7 @@ pre code {
 
 .markdown h5 {
   font-size: 1em;
-  line-height: 0.86em
+  line-height: 0.86em;
 }
 
 .markdown h6 {
@@ -90,7 +85,7 @@ pre code {
   line-height: 0.75em
 }
 
-.markdown h4, .markdown h5, .markdown p, .markdown ul, .markdown ol, .markdown pre, .markdown blockquote, .markdown table {
+.markdown h4, .markdown h5, .markdown p, .markdown ol, .markdown pre, .markdown blockquote, .markdown table:not([class]) {
   margin: 1.5em 0
 }
 
@@ -107,25 +102,25 @@ pre code {
   padding-bottom: 10px
 }
 
-.markdown > h1:first-child, .markdown h2:first-child, .markdown h3:first-child, .markdown h4:first-child, .markdown p:first-child, .markdown ul:first-child, .markdown ol:first-child, .markdown pre:first-child, .markdown blockquote:first-child {
+.markdown > h1:first-child, .markdown h2:first-child, .markdown h3:first-child, .markdown h4:first-child, .markdown p:first-child, .markdown ol:first-child, .markdown pre:first-child, .markdown blockquote:first-child {
   margin-top: 0
 }
 
-.markdown ul, .markdown ol {
+.markdown ol {
   margin-left: 3em;
   padding-left: 0
 }
 
-.markdown ul li, .markdown ol li {
+.markdown ol li {
   margin: .3em 0
 }
 
-.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol {
+.markdown ol ul, .markdown ol ol {
   margin-top: 0;
   margin-bottom: 0
 }
 
-.markdown ul p, .markdown ol p {
+.markdown ol p {
   margin: 0
 }
 
@@ -133,7 +128,7 @@ pre code {
   margin-bottom: 0
 }
 
-.markdown p > p:empty, .markdown div > p:empty, .markdown p > div:empty, .markdown div > br:only-child, .markdown p + br {
+.markdown p > p:empty, .markdown div > p:empty, .markdown p > div:empty, .markdown div > br:only-child, .markdown p + br:not([class]) {
   display: none
 }
 
@@ -153,7 +148,7 @@ pre code {
 }
 
 .markdown blockquote {
-  border-left: 2px solid #009A61;
+  border-left: 2px solid #409EFF;
   background: #F6F6F6;
   color: #555;
   font-size: 1em
@@ -199,27 +194,27 @@ pre code {
   overflow-x: auto
 }
 
-.markdown table {
+.markdown table:not([class]) {
   width: 100%
 }
 
-.markdown table th, .markdown table td {
+.markdown table:not([class]) th, .markdown table:not([class]) td {
   border: 1px solid #E6E6E6;
   padding: 5px 8px;
   word-break: normal
 }
 
-.markdown table th {
+.markdown table:not([class]) th {
   background: #F3F3F3
 }
 
-.markdown a:not(.btn) {
-  border-bottom: 1px solid rgba(0, 154, 97, 0.25);
-  padding-bottom: 1px
+.markdown a:not([class]) {
+  color: #409EFF;
+  text-decoration: none;
 }
 
-.markdown a:not(.btn):hover {
-  border-bottom: 1px solid #009a61;
+.markdown a:not([class]):hover {
+  border-bottom: 1px solid #409EFF;
   text-decoration: none
 }
 

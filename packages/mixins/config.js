@@ -1,5 +1,3 @@
-import Config from '../config';
-
 /**
  * 全局与组件传参自适应
  * @param props Object {theme: String, $slots: { theme: 'theme' }}
@@ -16,7 +14,7 @@ function ConfigMixins(props, {prefix = 'm', firstUpperCase = true} = {}) {
     computed: {},
   };
   for (let prop in props) {
-    if (typeof Config[prop] !== 'undefined' && prop !== '$slots') {
+    if (prop !== '$slots') {
       mixin.props[prop] = props[prop];
       let newProp = prefix;
       if (firstUpperCase) {
@@ -30,11 +28,11 @@ function ConfigMixins(props, {prefix = 'm', firstUpperCase = true} = {}) {
             if (!this.$slots[props.$slots[prop]]) return false;
           }
           const _prop = this.$options.propsData[prop];
-          return typeof _prop === 'undefined' ? Config[prop] : this[prop];
+          return typeof _prop === 'undefined' ? this.$ea.config[prop] : this[prop];
         },
         set(v) {
           if (typeof this.$options.propsData[prop] === 'undefined') {
-            Config[prop] = v;
+            this.$ea.config[prop] = v;
           } else {
             this.$emit(`update:${prop}`, v);
           }
@@ -44,7 +42,5 @@ function ConfigMixins(props, {prefix = 'm', firstUpperCase = true} = {}) {
   }
   return mixin;
 }
-
-export {Config};
 
 export default ConfigMixins;

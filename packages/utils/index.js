@@ -92,6 +92,17 @@ function strLen(str) {
   return len;
 }
 
+function getElementHeight(el) {
+  let height = 0;
+  let style = window.getComputedStyle(el, null);
+  height += +style.height.replace(/[^0-9|.|-]/ig, '');
+  height += +style.marginTop.replace(/[^0-9|.|-]/ig, '');
+  height += +style.marginBottom.replace(/[^0-9|.|-]/ig, '');
+  height += +style.paddingTop.replace(/[^0-9|.|-]/ig, '');
+  height += +style.paddingBottom.replace(/[^0-9|.|-]/ig, '');
+  return height;
+}
+
 const Utils = {
   GUID,
   fixed,
@@ -99,11 +110,13 @@ const Utils = {
   cloneDeep,
   arrayChildrenFlatten,
   strLen,
-  reg
+  reg,
+  getElementHeight,
 };
 
 export {
   UtilsOptions,
+  getElementHeight,
 };
 
 export default Utils;

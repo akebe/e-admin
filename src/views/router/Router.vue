@@ -70,7 +70,12 @@
                 {label: 'index.js'},
               ],
             },
-            {label: 'views', children: []},
+            {
+              label: 'views',
+              children: [
+                {label: 'Index.vue'},
+              ],
+            },
             {label: 'App.vue'},
             {label: 'main.js'},
           ],

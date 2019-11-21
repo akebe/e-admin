@@ -41,7 +41,7 @@ const EaConfig = {
   /**
    * 是否自动隐藏头部
    */
-  headerAutoHide: true,
+  headerAutoHide: false,
   /**
    * 左侧菜单展开大小
    */

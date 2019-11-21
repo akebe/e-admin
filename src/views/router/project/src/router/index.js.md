@@ -3,12 +3,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import RouterEach from './router-each';
 
+import {Error} from 'e-admin';
+
 const Index = () =>
-  import ( /* webpackChunkName: "index" */ '@/document/views/Index.vue');
+  import ( /* webpackChunkName: "index" */ '@/src/views/Index.vue');
 const Install = () =>
-  import ( /* webpackChunkName: "install" */ '@/document/views/Install.vue');
-const Error = () =>
-  import ( /* webpackChunkName: "error" */ '@/components/error/Error.vue');
+  import ( /* webpackChunkName: "install" */ '@/src/views/Install.vue');
 
 Vue.use(VueRouter);
 
