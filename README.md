@@ -1,5 +1,7 @@
 # e-admin
-基于element-ui搭建的中后台半成品UI框架
+基于 [element](https://github.com/ElemeFE/element) 封装的即开即用渐进式中后台组件库
+
+📄中文文档 [github](https://akebe.github.io/e-admin/) [gitee](https://asseek.gitee.io/e-admin/) 
 
 ### Install
 ```
