@@ -7,7 +7,7 @@
   background-color: @white;
   display: flex;
 
-  ._item {
+  > div:not(._center), ._center > div {
     line-height: @header-height;
     padding: 0 10px;
     .el-breadcrumb {
@@ -21,6 +21,7 @@
 
   ._center {
     flex: 1;
+    display: flex;
   }
 
 }

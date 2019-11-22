@@ -1,12 +1,12 @@
 <template>
   <div class="ea-header">
     <div
-        class="_item ea-hover"
+        class="ea-hover"
         v-if="collapse !== 'false'"
         @click="mCollapse = !mCollapse">
       <i :class="`ea-icon-page-arrow-${mCollapse ? 'right' : 'left'}`"></i>
     </div>
-    <div class="_item">
+    <div>
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item
             v-for="route in breadcrumbs"
@@ -25,7 +25,7 @@
         effect="dark"
         :content="noticeContent"
         placement="bottom">
-      <div class="_item ea-hover" @click="command('notice')">
+      <div class="ea-hover" @click="command('notice')">
         <el-badge
             :value="typeof notice !== 'boolean' ? notice : ''"
             :is-dot="notice === true"
@@ -40,11 +40,11 @@
         effect="dark"
         :content="!screenfull ? '全屏' : '还原'"
         placement="bottom">
-      <div class="_item ea-hover" @click="fullScreen">
+      <div class="ea-hover" @click="fullScreen">
         <i :class="`ea-icon-fullscreen${screenfull ? '-exit' : ''}`"></i>
       </div>
     </el-tooltip>
-    <div class="_item ea-hover">
+    <div class="ea-hover">
       <el-dropdown @command="command" slot="reference" trigger="click">
         <a>
           <span>{{ user.name }}</span>
