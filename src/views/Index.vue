@@ -1,14 +1,19 @@
 <template>
   <ea-admin>
     <template v-slot:header>
-      <ea-header
+      <e-header
           :collapse.sync="headerCollapse"
           :notice="notice"
           :fullscreen="fullscreen"
           :nav-data="headerNavData"
           :user="user"
-          @command="handleCommand"
-      ></ea-header>
+          @command="handleCommand">
+        <div style="flex:1">
+        </div>
+        <div class="ea-hover">
+          <a class="iconfont icon-github" target="_blank" href="https://github.com/akebe/e-admin"></a>
+        </div>
+      </e-header>
     </template>
     <template v-slot:tabs>
       <ea-tabs
@@ -35,10 +40,13 @@
   import navData from './nav-data';
   import logo from '@/assets/logo.svg';
   import store from '@/store';
+  import eHeader from '../../packages/components/header';
 
   export default {
     name: 'Index',
-    components: {},
+    components: {
+      eHeader,
+    },
     props: {},
     watch: {},
     data() {
@@ -110,3 +118,8 @@
     },
   };
 </script>
+<style scoped>
+  .icon-github {
+    font-size: 22px
+  }
+</style>

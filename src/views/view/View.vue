@@ -1,7 +1,3 @@
-<style scoped>
-</style>
-<style>
-</style>
 <template>
   <ea-view :center="center">
     <view-md>
