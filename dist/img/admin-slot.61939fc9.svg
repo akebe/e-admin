@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon" viewBox="0 0 866 500"
+     width="866" height="500" id="svgcontent" overflow="visible" x="866" y="500">
+    <defs>
+        <style type="text/css"></style>
+    </defs>
+    <g style="pointer-events:all">
+        <title style="pointer-events:inherit">Layer 1</title>
+        <rect fill="#aad4ff" stroke-width="null" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null"
+              x="25.44443741515327" y="21.111116020636626" width="172.55555726779912" height="450.8888557966525"
+              id="svg_3" fill-opacity="1" stroke-opacity="1" stroke="none"></rect>
+        <rect fill="#aad4ff" stroke-width="null" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null"
+              style="pointer-events:inherit" x="153.4444446033899" y="140.77777693006726" width="7.111111111111086"
+              height="0" id="svg_5" fill-opacity="1" stroke="none" stroke-opacity="1"></rect>
+        <text fill="#3f3f3f" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="104.11111077997407" y="223.99999957614466" id="svg_7" font-size="16" font-family="Cursive" text-anchor="middle" xml:space="preserve" fill-opacity="1" stroke="none" stroke-opacity="1" font-weight="bold">side</text>
+        <rect fill="#bfbfbf" stroke-width="null" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null"
+              x="196.99999842802674" y="21.111107413188297" width="644.000011628674" height="47.44444465637208"
+              id="svg_8" fill-opacity="1" stroke-opacity="1" stroke="none"></rect>
+        <rect fill="#aad4ff" stroke-width="null" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null"
+              style="pointer-events:inherit" x="501.8888890478345" y="48.333332485622805" width="19.55555555555543"
+              height="0" id="svg_9" fill-opacity="1" stroke="none" stroke-opacity="1"></rect>
+        <text fill="#3f3f3f" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="494.88888944519863" y="53.99999935097162" id="svg_10" font-size="16" font-family="Cursive" text-anchor="middle" xml:space="preserve" fill-opacity="1" stroke="none" stroke-opacity="1" font-weight="bold">tabs</text>
+        <rect fill="#aaffaa" stroke-width="null" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null"
+              x="197.00000006083434" y="68.55555534693931" width="644" height="45.99999950329462" id="svg_11"
+              fill-opacity="1" stroke-opacity="1" stroke="none"></rect>
+        <rect fill="#ffd4aa" stroke-width="null" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null"
+              x="197.00000006083434" y="114.55554043660584" width="644" height="357.44445958454236" id="svg_12"
+              fill-opacity="1" stroke-opacity="1" stroke="none"></rect>
+        <text fill="#3f3f3f" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="502.4444449212815" y="96.88888804117835" id="svg_13" font-size="16" font-family="Cursive" text-anchor="middle" xml:space="preserve" fill-opacity="1" stroke="none" stroke-opacity="1" font-weight="bold">header</text><text fill="#3f3f3f" stroke-width="0" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="506.77777824136933" y="261.1111102634005" id="svg_14" font-size="16" font-family="Cursive" text-anchor="middle" xml:space="preserve" fill-opacity="1" stroke="none" stroke-opacity="1" font-weight="bold">default</text>
+    </g>
+</svg>

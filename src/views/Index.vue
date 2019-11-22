@@ -7,6 +7,7 @@
           :fullscreen="fullscreen"
           :nav-data="headerNavData"
           :user="user"
+          @command="handleCommand"
       ></ea-header>
     </template>
     <template v-slot:tabs>
@@ -33,6 +34,7 @@
 <script>
   import navData from './nav-data';
   import logo from '@/assets/logo.svg';
+  import store from '@/store';
 
   export default {
     name: 'Index',
@@ -41,10 +43,7 @@
     watch: {},
     data() {
       return {
-        user: {
-          name: 'admin',
-          avatar: '',
-        },
+        user: store.user,
         unread: 10,
         collapse: false,
         active: '',
@@ -84,7 +83,27 @@
         return this.headerNavDataActive ? navData : [];
       },
     },
-    methods: {},
+    methods: {
+      handleCommand(command) {
+        switch (command) {
+          case 'me':
+            this.$message.warning('未实现');
+            break;
+          case 'setting':
+            this.$message.warning('未实现');
+            break;
+          case 'logout':
+            store.user = {
+              name: '',
+              id: '',
+            };
+            this.$message.success('已退出');
+            localStorage.setItem('document_user', JSON.stringify(store.user));
+            this.$router.push('/login');
+            break;
+        }
+      },
+    },
     created() {
     },
     mounted() {

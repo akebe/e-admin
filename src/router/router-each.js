@@ -8,18 +8,16 @@ import store from '@/store';
 export default (router) => {
 
   router.beforeEach((to, from, next) => {
-
-    Ea.LoadingBar.start();
-
-    //如果当前访问页面不是无限制页面 并且当前成员没有登录 跳到登录页
-    if (to.meta.login === true && !store.user.id) {
+    //当前成员没有登录 跳到登录页
+    if (to.meta.login !== false && !store.user.id) {
       Message.warning('请您先登录~');
       //记录的是进入页面 使登录或注册成功后可以正确跳回
       store.route.to = to;
-      next({name: 'Login'});
+      next({path: '/login'});
     } else {
       //判断是否禁止跳转
       if (!store.route.stopJump) {
+        Ea.LoadingBar.start();
         next();
       } else {
         Ea.LoadingBar.error();

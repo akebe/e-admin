@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
+let user = localStorage.getItem('document_user');
+
 const store = {
 
   title: 'e-admin',
@@ -9,7 +11,7 @@ const store = {
     to: null,
   },
 
-  user: {
+  user: user ? JSON.parse(user) : {
     id: '',
     name: '',
   },
