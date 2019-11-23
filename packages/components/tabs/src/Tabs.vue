@@ -1,7 +1,3 @@
-<style scoped>
-</style>
-<style>
-</style>
 <template>
   <div class="ea-tabs">
     <div class="_wrap">

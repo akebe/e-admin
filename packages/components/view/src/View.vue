@@ -10,8 +10,6 @@
   </div>
 </template>
 <script>
-  /* eslint-disable no-console */
-
   export default {
     name: 'EaView',
     components: {},
