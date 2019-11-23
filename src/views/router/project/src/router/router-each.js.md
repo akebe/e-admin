@@ -1,4 +1,4 @@
-````
+```
 import {Message} from 'element-ui';
 import Ea from 'e-admin';
 import store from '@/store';
@@ -37,4 +37,4 @@ export default (router) => {
   });
 
 }
-````
+```

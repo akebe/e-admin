@@ -1,4 +1,4 @@
-````
+```
 <template>
   <div>
     <ea-admin-header
@@ -20,4 +20,4 @@
     },
   }
 </script>
-````
+```

@@ -25,30 +25,30 @@
 
 ###user
 当前登录人数据对象
-````
+```
 {
   name: '未知', 
   avatar: ''
 }
-````
+```
 
 ###dropdown-menu
 下拉菜单
 接受一个数组参数，支持对象如下
-````
+```
 {
   value: 'me',       // 菜单点击后作为command参数被传出
   label: '我的信息', // 菜单显示标题
   divided: false,    // 是否显示下划线
 };
-````
+```
 默认配置
-````
+```
 [
   {value: 'me', label: '我的信息', divided: false},
   {value: 'setting', label: '设置', divided: false},
   {value: 'logout', label: '退出', divided: true},
 ]
-````
+```
 
 <slot name="table"></slot>

@@ -1,4 +1,4 @@
-````
+```
 <template>
   <ea-view :center="center">
     <div>
@@ -29,4 +29,4 @@
     },
   }
 </script>
-````
+```

@@ -1,4 +1,4 @@
-````
+```
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import RouterEach from './router-each';
@@ -58,4 +58,4 @@ const router = new VueRouter({
 RouterEach(router);
 
 export default router;
-````
+```

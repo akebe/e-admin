@@ -1,4 +1,4 @@
-````
+```
 <template>
   <div style="display: flex;width: 100%">
     <div style="width: 200px;height: 300px">
@@ -93,4 +93,4 @@
     },
   }
 </script>
-````
+```

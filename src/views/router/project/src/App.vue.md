@@ -1,4 +1,4 @@
-````
+```
 <template>
   <router-view/>
 </template>
@@ -7,4 +7,4 @@
     name: 'App',
   };
 </script>
-````
+```

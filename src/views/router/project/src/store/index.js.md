@@ -1,4 +1,4 @@
-````
+```
 import Vue from 'vue';
 
 const store = {
@@ -20,4 +20,4 @@ const store = {
 Vue.observable(store);
 
 export default store;
-````
+```

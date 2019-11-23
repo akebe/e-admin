@@ -2,7 +2,7 @@
 渐进式架构，可选通过提供插槽插入对应组件完成后台搭建
 ###配置
 可按插槽名插入对应组件完成后台搭建，完整配置如下
-````html
+```html
 <ea-admin>
   <template v-slot:header>
     <ea-header
@@ -30,13 +30,13 @@
     ></ea-nav-menu>
   </template>
 </ea-admin>
-````
+```
 默认插槽默认配置了对`tabs`的`include`  
-````
+```
 <keep-alive :include="include">
   <router-view/>
 </keep-alive>
-````
+```
 如需自定义请配置`include`为`this.$ea.config.page.tabs.map(v => v.name)`  
 ###Side折叠
 通过`collapse`控制左侧边栏是否折叠  

@@ -1,4 +1,4 @@
-````
+```
 <template>
   <el-switch
       v-model="collapse"
@@ -20,4 +20,4 @@
     },
   }
 </script>
-````
+```
