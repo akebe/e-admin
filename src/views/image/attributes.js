@@ -4,62 +4,76 @@ export default [
     desc: '图片src',
     type: 'String',
     enum: '-',
-    default: ''
+    default: '',
   },
   {
     prop: 'icon',
     desc: '图标class',
     type: 'String',
     enum: '-',
-    default: ''
+    default: '',
   },
   {
     prop: 'border',
     desc: '是否显示边框，支持传入字符串自定义边框样式',
     type: 'Boolean / String',
     enum: '-',
-    default: 'false'
+    default: 'false',
   },
   {
     prop: 'disabled',
     desc: '是否禁用状态',
     type: 'Boolean',
     enum: '-',
-    default: 'false'
+    default: 'false',
   },
   {
     prop: 'hover',
     desc: '是否启用鼠标移入效果，此配置会启用border',
     type: 'Boolean',
     enum: '-',
-    default: 'false'
+    default: 'false',
   },
   {
     prop: 'error',
     desc: '是否显示为错误状态',
     type: 'Boolean',
     enum: '-',
-    default: 'false'
+    default: 'false',
   },
   {
     prop: 'size',
     desc: '大小尺寸，支持自定义尺寸 数值类型以px为单位',
     type: 'String / Number',
     enum: 'large / medium / small / mini',
-    default: 'medium'
+    default: 'medium',
   },
   {
     prop: 'width',
     desc: '图片宽度',
     type: 'String / Number',
     enum: '-',
-    default: ''
+    default: '',
   },
   {
     prop: 'height',
     desc: '图片高度',
     type: 'String / Number',
     enum: '-',
-    default: ''
+    default: '',
+  },
+  {
+    prop: 'preview-src-list',
+    desc: '开启图片预览功能',
+    type: 'Array',
+    enum: '-',
+    default: '[]',
+  },
+  {
+    prop: 'z-index',
+    desc: '设置图片预览的 z-index',
+    type: 'Number',
+    enum: '-',
+    default: '2000',
   },
 ];

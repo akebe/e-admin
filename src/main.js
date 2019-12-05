@@ -15,13 +15,15 @@ import 'prismjs/themes/prism.css';
 import '@/style/markdown-segmentfault.css';
 import '@/style/index.less';
 
-import DemoBlock from '@/components/demo-block/DemoBlock.vue'
-import DocumentTable from '@/components/DocumentTable.vue'
+import DemoBlock from '@/components/demo-block/DemoBlock.vue';
+import DocumentTable from '@/components/DocumentTable.vue';
+import ElImageViewer from 'element-ui/packages/image/src/image-viewer';
 
 Vue.use(ElementUI).use(Ea);
 
 Vue.component(DemoBlock.name, DemoBlock);
 Vue.component(DocumentTable.name, DocumentTable);
+Vue.component(ElImageViewer.name, ElImageViewer);
 
 Vue.config.productionTip = false;
 

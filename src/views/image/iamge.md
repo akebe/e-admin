@@ -14,10 +14,18 @@ Vue.use(EaImage);
 <ea-image
     src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
     size="large"
+    :preview-src-list="['https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg']"
     hover
 />
 ```
+可通过`previewSrcList` 开启预览大图的功能，这个功能需要手动安装需要`ElImageViewer`
+在`main.js`全局安装这个组件
+```
+import Vue from 'vue';
+import ElImageViewer from 'element-ui/packages/image/src/image-viewer';
 
+Vue.component(ElImageViewer.name, ElImageViewer);
+```
 <slot></slot>
 
 ###配置项效果

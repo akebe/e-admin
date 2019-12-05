@@ -4,6 +4,7 @@
       <ea-image
           src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
           size="large"
+          :preview-src-list="['https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg']"
           hover
       />
       <template v-slot:attr>

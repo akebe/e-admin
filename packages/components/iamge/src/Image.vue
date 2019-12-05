@@ -5,8 +5,9 @@
          :src="src"
          :style="imgStyles"
          @load="onLoad"
+         @click="clickHandler"
          @error="onError"/>
-    <span v-if="icon || loading || mError">
+    <span class="_span" v-if="icon || loading || mError">
       <i v-if="icon && !loading && !mError" :class="icon"></i>
       <slot name="loading" v-if="loading"><i class="el-icon-loading"></i></slot>
       <slot name="error" v-if="mError"><i class="el-icon-warning-outline"></i></slot>
@@ -14,9 +15,18 @@
     <div class="_mask" v-if="mask">
       <slot name="mask"></slot>
     </div>
+    <template v-if="preview">
+      <el-image-viewer
+          :z-index="zIndex"
+          :initial-index="imageIndex"
+          v-show="showViewer"
+          :on-close="closeViewer"
+          :url-list="previewSrcList"/>
+    </template>
   </div>
 </template>
 <script>
+  let prevOverflow = '';
   export default {
     name: 'EaImage',
     components: {},
@@ -34,6 +44,14 @@
       icon: String,
       width: [String, Number],
       height: [String, Number],
+      previewSrcList: {
+        type: Array,
+        default: () => [],
+      },
+      zIndex: {
+        type: Number,
+        default: 2000,
+      },
     },
     watch: {
       src(v) {
@@ -48,6 +66,7 @@
         mError: false,
         loading: !!this.src,
         sizes: ['mini', 'small', 'medium', 'large'],
+        showViewer: false,
       };
     },
     computed: {
@@ -96,16 +115,32 @@
           lineHeight,
         };
       },
-      imgSrc() {
-        return this.src || this.defaultSrc;
-      },
       isError() {
         return this.error || this.mError;
+      },
+      preview() {
+        const {previewSrcList} = this;
+        return Array.isArray(previewSrcList) && previewSrcList.length > 0;
+      },
+      imageIndex() {
+        const index = this.previewSrcList.indexOf(this.src);
+        return index > -1 ? index : 0;
       },
     },
     methods: {
       onClick(event) {
         this.$emit('click', event);
+      },
+      clickHandler() {
+        if (this.preview) {
+          prevOverflow = document.body.style.overflow;
+          document.body.style.overflow = 'hidden';
+          this.showViewer = true;
+        }
+      },
+      closeViewer() {
+        document.body.style.overflow = prevOverflow;
+        this.showViewer = false;
       },
       onLoad(event) {
         this.loading = false;
