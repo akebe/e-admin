@@ -2,6 +2,7 @@ import {install} from './main';
 import Admin from './components/admin';
 import Error from './components/error';
 import Header from './components/header';
+import Image from './components/iamge';
 import Icon from './components/icon';
 import LoadingBar from './components/loading-bar';
 import Login from './components/login';
@@ -16,6 +17,7 @@ export {
   Error,
   Header,
   Icon,
+  Image,
   LoadingBar,
   Login,
   Logo,
@@ -35,6 +37,7 @@ export default {
       .use(Error)
       .use(Header)
       .use(Icon)
+      .use(Image)
       .use(LoadingBar)
       .use(Login)
       .use(Logo)

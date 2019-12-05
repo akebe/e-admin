@@ -27,35 +27,53 @@ export default [
     icon: 'el-icon-s-grid',
     children: [
       {
-        title: '框架',
-        path: '/admin',
-        icon: 'iconfont icon-layout',
+        title: 'admin',
+        group: true,
+        children: [
+          {
+            title: '框架',
+            path: '/admin',
+            icon: 'iconfont icon-layout',
+          },
+          {
+            title: '头部组件',
+            path: '/header',
+            icon: 'iconfont icon-header',
+          },
+          {
+            title: '标签栏',
+            path: '/tabs',
+            icon: 'iconfont icon-tabs',
+          },
+          {
+            title: '导航菜单',
+            path: '/nav-menu',
+            icon: 'iconfont icon-side',
+          },
+          {
+            title: 'Logo组件',
+            path: '/logo',
+            src: logo,
+          },
+          {
+            title: '页面组件',
+            path: '/view',
+            icon: 'iconfont icon-view',
+          },
+        ],
       },
       {
-        title: '头部组件',
-        path: '/header',
-        icon: 'iconfont icon-header',
+        title: 'image',
+        group: true,
+        children: [
+          {
+            title: 'Image',
+            path: '/image',
+            icon: 'el-icon-picture',
+          },
+        ],
       },
-      {
-        title: '标签栏',
-        path: '/tabs',
-        icon: 'iconfont icon-tabs',
-      },
-      {
-        title: '导航菜单',
-        path: '/nav-menu',
-        icon: 'iconfont icon-side',
-      },
-      {
-        title: 'Logo组件',
-        path: '/logo',
-        src: logo,
-      },
-      {
-        title: '页面组件',
-        path: '/view',
-        icon: 'iconfont icon-view',
-      },
+
     ],
   },
   {

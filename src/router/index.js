@@ -27,6 +27,8 @@ const NavMenu = () =>
   import ( /* webpackChunkName: "ea-nav-menu" */ '@/views/nav-menu/NavMenu.vue');
 const View = () =>
   import ( /* webpackChunkName: "ea-view" */ '@/views/view/View.vue');
+const Image = () =>
+  import ( /* webpackChunkName: "ea-image" */ '@/views/image/Image.vue');
 
 Vue.use(VueRouter);
 
@@ -92,6 +94,11 @@ const router = new VueRouter({
           path: '/view',
           name: 'View',
           component: View,
+        },
+        {
+          path: '/image',
+          name: 'Image',
+          component: Image,
         },
         ...Router,
         {

@@ -1,0 +1,29 @@
+```
+<template>
+  <ea-image
+      src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+      border
+      size="mini"/>
+  <ea-image
+      src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+      border
+      size="small"/>
+  <ea-image
+      src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+      border
+      size="medium"/>
+  <ea-image
+      src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+      border
+      size="large"/>
+  <ea-image
+      src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+      border
+      :size="150"/>
+  <ea-image
+      src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+      border
+      width="250px"
+      height="150px"/>
+</template>
+```

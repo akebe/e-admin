@@ -132,17 +132,17 @@ pre code {
   display: none
 }
 
-.markdown img, .markdown video, .markdown audio {
+.markdown img:not([class]), .markdown video, .markdown audio {
   position: static !important;
   max-width: 100%
 }
 
-.markdown img {
+.markdown img:not([class]) {
   padding: 3px;
   border: 1px solid #ddd
 }
 
-.markdown img.emoji {
+.markdown img:not([class]).emoji {
   padding: 0;
   border: none
 }
