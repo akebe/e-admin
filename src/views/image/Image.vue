@@ -128,7 +128,7 @@
   </ea-view>
 </template>
 <script>
-  import imageMd from './iamge.md';
+  import imageMd from './image.md';
   import attrMd from './attr.md';
   import borderMd from './border.md';
   import sizeMd from './size.md';
