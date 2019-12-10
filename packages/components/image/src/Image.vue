@@ -1,19 +1,23 @@
 <template>
   <div :class="classes" :style="styles" @click="onClick">
     <img class="_img"
-         v-show="src && !loading && !mError"
+         v-show="src && !loading && !isError"
          :src="src"
-         :style="imgStyles"
+         :style="{'object-fit': this.fit}"
          @load="onLoad"
          @click="clickHandler"
          @error="onError"/>
-    <span class="_span" v-if="icon || loading || mError">
-      <i v-if="icon && !loading && !mError" :class="icon"></i>
-      <slot name="loading" v-if="loading"><i class="el-icon-loading"></i></slot>
-      <slot name="error" v-if="mError"><i class="el-icon-warning-outline"></i></slot>
+    <span class="_span" v-if="icon && !isLoad || loading || isError">
+      <i v-if="icon && !isLoad && !loading && !isError" :class="icon"/>
+      <slot name="loading" v-if="loading">
+        <i class="el-icon-loading"/>
+      </slot>
+      <slot name="error" v-if="isError">
+        <i class="el-icon-warning-outline"/>
+      </slot>
     </span>
     <div class="_mask" v-if="mask">
-      <slot name="mask"></slot>
+      <slot name="mask"/>
     </div>
     <template v-if="preview">
       <el-image-viewer
@@ -27,6 +31,7 @@
 </template>
 <script>
   let prevOverflow = '';
+
   export default {
     name: 'EaImage',
     components: {},
@@ -36,6 +41,7 @@
       hover: Boolean,
       error: Boolean,
       mask: Boolean,
+      fit: String,
       size: {
         type: [String, Number],
         default: 'medium',
@@ -57,13 +63,15 @@
       src(v) {
         if (v) {
           this.loading = true;
-          this.mError = false;
+          this.isError = false;
         }
+        this.isLoad = false;
       },
     },
     data() {
       return {
-        mError: false,
+        isError: false,
+        isLoad: false,
         loading: !!this.src,
         sizes: ['mini', 'small', 'medium', 'large'],
         showViewer: false,
@@ -75,9 +83,9 @@
           'ea-image': true,
           '_hover': this.hover,
           '_disabled': this.disabled,
-          '_error': this.isError,
+          '_error': this.isError || this.error,
         };
-        if (this.sizes.includes(this.size)) {
+        if (!this.width && !this.height && this.sizes.includes(this.size)) {
           classes[`_size-${this.size}`] = true;
         }
         return classes;
@@ -107,17 +115,6 @@
         }
         return styles;
       },
-      imgStyles() {
-        const {width, height, lineHeight} = this.styles;
-        return {
-          width,
-          height,
-          lineHeight,
-        };
-      },
-      isError() {
-        return this.error || this.mError;
-      },
       preview() {
         const {previewSrcList} = this;
         return Array.isArray(previewSrcList) && previewSrcList.length > 0;
@@ -144,10 +141,11 @@
       },
       onLoad(event) {
         this.loading = false;
+        this.isLoad = true;
         this.$emit('load', event);
       },
       onError(event) {
-        this.mError = true;
+        this.isError = !!this.src;
         this.loading = false;
         this.$emit('error', event);
       },
