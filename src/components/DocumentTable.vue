@@ -12,7 +12,7 @@
       <el-table-column
           prop="prop"
           label="参数"
-          width="160">
+          width="170">
         <template slot-scope="scope">
           {{ scope.row.prop }}
           <el-tooltip v-if="scope.row.config" effect="dark" content="此参数未配置默认使用全局联动配置项" placement="top-start">

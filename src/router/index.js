@@ -29,6 +29,8 @@ const View = () =>
   import ( /* webpackChunkName: "ea-view" */ '@/views/view/View.vue');
 const Image = () =>
   import ( /* webpackChunkName: "ea-image" */ '@/views/image/Image.vue');
+const ImageDialog = () =>
+  import ( /* webpackChunkName: "ea-image-dialog" */ '@/views/image-dialog/ImageDialog.vue');
 
 Vue.use(VueRouter);
 
@@ -99,6 +101,11 @@ const router = new VueRouter({
           path: '/image',
           name: 'Image',
           component: Image,
+        },
+        {
+          path: '/image-dialog',
+          name: 'ImageDialog',
+          component: ImageDialog,
         },
         ...Router,
         {

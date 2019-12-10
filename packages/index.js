@@ -3,6 +3,7 @@ import Admin from './components/admin';
 import Error from './components/error';
 import Header from './components/header';
 import Image from './components/image';
+import ImageDialog from './components/image-dialog';
 import Icon from './components/icon';
 import LoadingBar from './components/loading-bar';
 import Login from './components/login';
@@ -18,6 +19,7 @@ export {
   Header,
   Icon,
   Image,
+  ImageDialog,
   LoadingBar,
   Login,
   Logo,
@@ -30,6 +32,7 @@ export {
 export default {
 
   LoadingBar: LoadingBar.instance,
+  imageDialog: ImageDialog.instance,
 
   install(Vue, options = {}) {
 
@@ -38,6 +41,7 @@ export default {
       .use(Header)
       .use(Icon)
       .use(Image)
+      .use(ImageDialog)
       .use(LoadingBar)
       .use(Login)
       .use(Logo)
@@ -47,5 +51,7 @@ export default {
       .use(View);
 
     install(Vue, options);
+
+    Vue.prototype.$imageDialog = ImageDialog.instance;
   },
 };

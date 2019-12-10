@@ -1,0 +1,44 @@
+@import '../../../style/var';
+
+.ea-image-dialog {
+  .el-dialog__body {
+    padding: 0 10px;
+  }
+
+  .el-dialog__footer {
+    padding-top: 5px;
+  }
+
+  .el-tab-pane {
+    padding-top: 20px;
+  }
+
+  ._drag {
+    width: 100%;
+    height: 100%;
+    padding: 8px 8px 0;
+    border: 2px dashed transparent;
+  }
+
+  ._dragover {
+    background-color: rgba(32, 159, 255, .06);
+    border-color: @blue;
+  }
+
+  ._image {
+    margin-bottom: 5px;
+
+    a {
+      font-size: 20px;
+      color: @white
+    }
+
+    a:nth-child(1) {
+      margin-right: 20px;
+    }
+  }
+
+  ._progress {
+    height: 16px
+  }
+}

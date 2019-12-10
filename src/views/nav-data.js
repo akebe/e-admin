@@ -71,6 +71,11 @@ export default [
             path: '/image',
             icon: 'el-icon-picture',
           },
+          {
+            title: 'ImageDialog',
+            path: '/image-dialog',
+            icon: 'el-icon-picture-outline',
+          },
         ],
       },
 
