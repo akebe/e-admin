@@ -13,6 +13,8 @@ import Tabs from './components/tabs';
 import TabsItem from './components/tabs-item';
 import View from './components/view';
 
+import Utils from './utils';
+
 export {
   Admin,
   Error,
@@ -27,6 +29,7 @@ export {
   Tabs,
   TabsItem,
   View,
+  Utils
 };
 
 export default {

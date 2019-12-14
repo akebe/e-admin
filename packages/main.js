@@ -1,5 +1,7 @@
 import Config from './config';
 
+import Utils from './utils/index.js';
+
 import './assets/iconfont/iconfont.css';
 import './assets/iconfont/iconfont.js';
 import './style/ea.less';
@@ -29,6 +31,8 @@ function install(Vue, options = {}) {
     },
     methods: {},
   }).$mount(el);
+
+  ea.$utils = Utils;
 
   Vue.prototype.$ea = ea;
 
