@@ -7,3 +7,8 @@ EaImage组件添加大图预览功能
 ####0.2.3 
 2019/12/14  
 暴露Utils
+####0.2.4 
+2019/12/19  
+EaTabs  使用圆角样式  
+EaImage 使用圆角样式 添加shape配置项  
+EaLogo  适配单logo样式  
