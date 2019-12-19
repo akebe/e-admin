@@ -9,12 +9,27 @@
   display: flex;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
   margin-bottom: 2px;
+
   ._logo {
-    padding:0 20px;
+    padding: 0 20px;
     width: 64px;
     color: @text-main;
+
     * {
       width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+
+  &._only-logo ._logo {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+
+    * {
+      width: auto;
       height: 24px;
       vertical-align: middle;
       text-align: center;

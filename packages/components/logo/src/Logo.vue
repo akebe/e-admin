@@ -1,8 +1,8 @@
 <template>
-  <div :class="{'ea-logo': true,[`ea--${mTheme}`]: true}">
+  <div :class="classes">
     <div class="_logo" v-if="logo">
-      <i v-if="logoType === 'icon'" :class="logo"></i>
-      <img v-else-if="logoType === 'image'" :src="logo">
+      <i v-if="logoType === 'icon'" :class="logo"/>
+      <img v-else-if="logoType === 'image'" :src="logo"/>
     </div>
     <div
         class="_name"
@@ -42,6 +42,13 @@
     computed: {
       nameVisible() {
         return !this.mCollapse || !this.logo && Utils.strLen(this.name) < 7;
+      },
+      classes() {
+        return {
+          'ea-logo': true,
+          [`ea--${this.mTheme}`]: true,
+          '_only-logo': !this.name,
+        };
       },
     },
     methods: {},
