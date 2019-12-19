@@ -1,0 +1,20 @@
+```
+<ea-image
+    border
+    shape=""
+    size="large"
+    src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+/>
+<ea-image
+    border
+    shape="square"
+    size="large"
+    src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+/>
+<ea-image
+    border
+    shape="circle"
+    size="large"
+    src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+/>
+```

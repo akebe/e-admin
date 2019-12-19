@@ -42,6 +42,11 @@ Vue.component(ElImageViewer.name, ElImageViewer);
 
 <slot name="size"></slot>
 
+###形状
+通过`shape` 设置图片的形状，可选 `square` / `circle` / `''`。
+
+<slot name="shape"></slot>
+
 ###遮罩
 通过`mask`启用遮罩，通常通过在插槽内插入操作图标，用来对图片进行额外操作
 

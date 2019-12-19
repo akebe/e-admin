@@ -1,6 +1,5 @@
 @import '../../../style/var';
 
-
 .ea-image {
   display: inline-block;
   border: 1px dashed transparent;
@@ -31,6 +30,14 @@
     line-height: @img-large;
   }
 
+  &._shape-square {
+    border-radius: @border-radius;
+  }
+
+  &._shape-circle {
+    border-radius: 50%;
+  }
+
   ._img {
     width: 100%;
     height: 100%;
@@ -49,12 +56,12 @@
 
 
     &:hover:not(._disabled):not(._error) {
-      border-color: @blue!important;
+      border-color: @blue !important;
     }
   }
 
   &._error {
-    border-color: @red!important;
+    border-color: @red !important;
   }
 
   &._disabled {

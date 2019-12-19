@@ -83,4 +83,11 @@ export default [
     enum: 'fill / contain / cover / none / scale-down',
     default: '',
   },
+  {
+    prop: 'shape',
+    desc: '设置图片的形状',
+    type: 'String',
+    enum: 'square / circle / \'\'',
+    default: 'square',
+  },
 ];

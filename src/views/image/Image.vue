@@ -33,7 +33,7 @@
             </div>
           </template>
           <template v-slot:highlight>
-            <attr-md></attr-md>
+            <attr-md/>
           </template>
         </demo-block>
       </template>
@@ -53,7 +53,7 @@
             </div>
           </template>
           <template v-slot:highlight>
-            <border-md></border-md>
+            <border-md/>
           </template>
         </demo-block>
       </template>
@@ -89,7 +89,35 @@
             </div>
           </template>
           <template v-slot:highlight>
-            <size-md></size-md>
+            <size-md/>
+          </template>
+        </demo-block>
+      </template>
+      <template v-slot:shape>
+        <demo-block>
+          <code>square</code>默认带有小圆角样式，如果不想要这个效果，可以传入空字符串
+          <template v-slot:source>
+            <ea-image
+                border
+                shape=""
+                size="large"
+                src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+            />
+            <ea-image
+                border
+                shape="square"
+                size="large"
+                src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+            />
+            <ea-image
+                border
+                shape="circle"
+                size="large"
+                src="https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg"
+            />
+          </template>
+          <template v-slot:highlight>
+            <shape-md/>
           </template>
         </demo-block>
       </template>
@@ -117,12 +145,12 @@
             </ea-image>
           </template>
           <template v-slot:highlight>
-            <mask-md></mask-md>
+            <mask-md/>
           </template>
         </demo-block>
       </template>
       <template v-slot:table>
-        <document-table :data="attributes"></document-table>
+        <document-table :data="attributes"/>
       </template>
     </image-md>
   </ea-view>
@@ -133,6 +161,7 @@
   import borderMd from './border.md';
   import sizeMd from './size.md';
   import maskMd from './mask.md';
+  import shapeMd from './shape.md';
   import attributes from './attributes.js';
 
   export default {
@@ -143,6 +172,7 @@
       borderMd,
       sizeMd,
       maskMd,
+      shapeMd,
     },
     props: {},
     watch: {},

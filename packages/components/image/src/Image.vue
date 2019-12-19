@@ -58,6 +58,13 @@
         type: Number,
         default: 2000,
       },
+      shape: {
+        type: String,
+        default: 'square',
+        validator(val) {
+          return ['circle', 'square', ''].includes(val);
+        },
+      },
     },
     watch: {
       src(v) {
@@ -87,6 +94,9 @@
         };
         if (!this.width && !this.height && this.sizes.includes(this.size)) {
           classes[`_size-${this.size}`] = true;
+        }
+        if (this.shape) {
+          classes[`_shape-${this.shape}`] = true;
         }
         return classes;
       },
