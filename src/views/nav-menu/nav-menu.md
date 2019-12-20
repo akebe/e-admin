@@ -14,6 +14,7 @@
     src: '',            // 图片格式图标
     group: false,       // 是否是分组菜单      
     disabled: false,    // 是否禁用 
+    visible: true,      // 是否显示 设为false隐藏 
     children: [         // 子菜单， group 为 true 的情况下此项被解析为分组菜单
       ...
     ],

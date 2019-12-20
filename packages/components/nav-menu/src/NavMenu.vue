@@ -90,6 +90,7 @@
           children.push(h('template', {slot: 'title'}, data.title));
         }
         for (let v of data.children) {
+          if (v.visible === false) continue;
           index += 1;
           if (v.children && v.children.length) {
             children.push(createElMenu(v, vm, `${opt.props.index}${index}`));
@@ -128,6 +129,7 @@
           }
         }
         for (let v of data.children) {
+          if (v.visible === false) continue;
           index += 1;
           if (!v.group) {
             if (v.children && v.children.length) {

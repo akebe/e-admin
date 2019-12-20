@@ -11,7 +11,7 @@
         <div style="flex:1">
         </div>
         <div class="ea-hover">
-          <a class="iconfont icon-github" target="_blank" href="https://github.com/akebe/e-admin"></a>
+          <a class="iconfont icon-github" target="_blank" href="https://github.com/akebe/e-admin"/>
         </div>
       </ea-header>
     </template>
@@ -19,7 +19,7 @@
       <ea-tabs
           :collapse.sync="tabsCollapse"
           :nav-data="tabsNavData"
-      ></ea-tabs>
+      />
     </template>
     <template v-slot:side>
       <ea-logo
@@ -27,12 +27,12 @@
           :logo="logo"
           v-if="logoVisible"
           logo-type="image"
-      ></ea-logo>
+      />
       <ea-nav-menu
           router
           :data="navData"
           v-model="active"
-      ></ea-nav-menu>
+      />
     </template>
   </ea-admin>
 </template>

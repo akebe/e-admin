@@ -76,6 +76,12 @@ export default [
             path: '/image-dialog',
             icon: 'el-icon-picture-outline',
           },
+          {
+            title: 'ImageDialogTest',
+            path: '/image-dialog',
+            visible: false,
+            icon: 'el-icon-picture-outline',
+          },
         ],
       },
 
