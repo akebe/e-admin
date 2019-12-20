@@ -129,9 +129,8 @@
         }
       },
       getTab(matched) {
-        let tab = matched.meta.tabs || this.getTabByNavData(this.navData, matched.path) || {
-          title: matched.meta.label || matched.meta.title || matched.name,
-        };
+        let tab = matched.meta.tabs || this.getTabByNavData(this.navData, matched.path) || {};
+        if (typeof tab.title === 'undefined') tab.title = matched.meta.label || matched.meta.title || matched.name;
         tab.path = matched.path;
         tab.name = matched.name;
         return tab;
