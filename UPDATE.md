@@ -12,3 +12,7 @@ EaImage组件添加大图预览功能
 EaTabs  使用圆角样式  
 EaImage 使用圆角样式 添加shape配置项  
 EaLogo  适配单logo样式  
+####0.2.5 
+2019/12/20   
+EaTabs  title自适应 
+EaNavMenu  支持visible配置
