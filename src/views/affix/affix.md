@@ -55,3 +55,5 @@
 占位..  
 
 <slot name="table"></slot>
+
+<slot name="events"></slot>

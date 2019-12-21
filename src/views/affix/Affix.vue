@@ -2,7 +2,7 @@
   <ea-view center>
     <affix-md>
       <template v-slot:top>
-        <ea-affix :offset-top="100">
+        <ea-affix :offset-top="100" @change="v => $message.success(`ea-affix change: ${v}`)">
           <demo-block>
             <template v-slot:source>
               向下滚动，这个代码示例区块会被固定在距离屏幕顶部<code>100px</code>的位置
@@ -28,6 +28,9 @@
       <template v-slot:table>
         <document-table :data="attributes"/>
       </template>
+      <template v-slot:events>
+        <document-table :data="events" type="Events"/>
+      </template>
     </affix-md>
   </ea-view>
 </template>
@@ -35,7 +38,8 @@
   import affixMd from './affix.md';
   import topMd from './top.md';
   import bottomMd from './bottom.md';
-  import attributes from './attributes'
+  import attributes from './attributes';
+  import events from './events';
 
   export default {
     name: 'Affix',
@@ -48,7 +52,8 @@
     watch: {},
     data() {
       return {
-        attributes
+        attributes,
+        events,
       };
     },
     computed: {},
