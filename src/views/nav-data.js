@@ -59,6 +59,18 @@ export default [
             title: '页面组件',
             path: '/view',
             icon: 'iconfont icon-view',
+            children: [
+              {
+                title: 'MultiView',
+                path: '/view/multi/:id',
+                visible: false,
+              },
+              {
+                title: 'SingleView',
+                path: '/view/single/:id',
+                visible: false,
+              },
+            ],
           },
         ],
       },
@@ -76,12 +88,6 @@ export default [
             path: '/image-dialog',
             icon: 'el-icon-picture-outline',
           },
-          {
-            title: 'ImageDialogTest',
-            path: '/image-dialog',
-            visible: false,
-            icon: 'el-icon-picture-outline',
-          },
         ],
       },
       {
@@ -93,8 +99,8 @@ export default [
             path: '/affix',
             icon: 'iconfont icon-affix',
           },
-        ]
-      }
+        ],
+      },
     ],
   },
   {

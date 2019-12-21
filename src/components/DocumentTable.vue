@@ -40,7 +40,7 @@
             width="100">
         </el-table-column>
       </template>
-      <template v-sele-if="type === 'Events'">
+      <template v-if="type === 'Events'">
         <el-table-column
             prop="prop"
             label="事件名称"

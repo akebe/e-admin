@@ -48,4 +48,11 @@ export default [
     enum: '-',
     default: 'true',
   },
+  {
+    prop: 'params-key',
+    desc: '子页面主键',
+    type: 'String',
+    enum: '-',
+    default: '-',
+  },
 ];

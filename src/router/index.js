@@ -29,6 +29,10 @@ const NavMenu = () =>
   import ( /* webpackChunkName: "ea-nav-menu" */ '@/views/nav-menu/NavMenu.vue');
 const View = () =>
   import ( /* webpackChunkName: "ea-view" */ '@/views/view/View.vue');
+const MultiView = () =>
+  import ( /* webpackChunkName: "ea-multi-view" */ '@/views/view/MultiView.vue');
+const SingleView = () =>
+  import ( /* webpackChunkName: "ea-single-view" */ '@/views/view/SingleView.vue');
 const Image = () =>
   import ( /* webpackChunkName: "ea-image" */ '@/views/image/Image.vue');
 const ImageDialog = () =>
@@ -98,6 +102,18 @@ const router = new VueRouter({
           path: '/view',
           name: 'View',
           component: View,
+        },
+        {
+          path: '/view/multi/:id',
+          props: true,
+          name: 'MultiView',
+          component: MultiView,
+        },
+        {
+          path: '/view/single/:id',
+          props: true,
+          name: 'SingleView',
+          component: SingleView,
         },
         {
           path: '/image',
