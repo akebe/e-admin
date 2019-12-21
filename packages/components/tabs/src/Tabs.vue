@@ -96,8 +96,7 @@
     },
     computed: {
       path() {
-        const matched = this.$route.matched.find(v => v.meta.childrenAgent);
-        return matched ? matched.path : this.$route.path;
+        return this.$route.path;
       },
     },
     methods: {
@@ -124,6 +123,7 @@
               this.tabs.push(tab);
             }
             tab.toPath = to.path;
+            tab.params = to.params;
             this.history.push([matched.path, to.path]);
           });
         }
@@ -133,7 +133,7 @@
         if (typeof tab.title === 'undefined') tab.title = matched.meta.label || matched.meta.title || matched.name;
         tab.path = matched.path;
         tab.name = matched.name;
-        return tab;
+        return {...tab};
       },
       getTabByNavData(ary, path) {
         for (let item of ary) {
