@@ -38,7 +38,7 @@
         </demo-block>
       </template>
       <template v-slot:table>
-        <document-table :data="attributes"></document-table>
+        <document-table :data="attributes"/>
         <div class="primary">
           <p>
             如果没有传参，默认使用全局联动配置项，默认值取决于 <code>$ea.config</code> 此配置可以在注入时改变，也可以通过全局 <code>$ea.config[Attributes] =

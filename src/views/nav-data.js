@@ -84,7 +84,17 @@ export default [
           },
         ],
       },
-
+      {
+        title: '其他',
+        group: true,
+        children: [
+          {
+            title: 'Affix 图钉',
+            path: '/affix',
+            icon: 'iconfont icon-affix',
+          },
+        ]
+      }
     ],
   },
   {

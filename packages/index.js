@@ -1,5 +1,6 @@
 import {install} from './main';
 import Admin from './components/admin';
+import Affix from './components/affix';
 import Error from './components/error';
 import Header from './components/header';
 import Image from './components/image';
@@ -17,6 +18,7 @@ import Utils from './utils';
 
 export {
   Admin,
+  Affix,
   Error,
   Header,
   Icon,
@@ -29,7 +31,7 @@ export {
   Tabs,
   TabsItem,
   View,
-  Utils
+  Utils,
 };
 
 export default {
@@ -40,6 +42,7 @@ export default {
   install(Vue, options = {}) {
 
     Vue.use(Admin)
+      .use(Affix)
       .use(Error)
       .use(Header)
       .use(Icon)

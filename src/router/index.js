@@ -15,6 +15,8 @@ const Login = () =>
   import ( /* webpackChunkName: "login" */ '@/views/Login.vue');
 const Install = () =>
   import ( /* webpackChunkName: "install" */ '@/views/install/Install.vue');
+const Affix = () =>
+  import ( /* webpackChunkName: "ea-affix" */ '@/views/affix/Affix.vue');
 const Admin = () =>
   import ( /* webpackChunkName: "ea-admin" */ '@/views/admin/Admin.vue');
 const Header = () =>
@@ -106,6 +108,11 @@ const router = new VueRouter({
           path: '/image-dialog',
           name: 'ImageDialog',
           component: ImageDialog,
+        },
+        {
+          path: '/affix',
+          name: 'Affix',
+          component: Affix,
         },
         ...Router,
         {
