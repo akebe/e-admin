@@ -24,11 +24,11 @@
           ></ea-tabs-item>
           <ea-tabs-item
               v-for="item in tabs"
-              :key="item.path"
+              :key="item.toPath"
               :title="item.title"
               :src="item.src"
               :icon="item.icon"
-              :active="path === item.path"
+              :active="path === item.toPath"
               closable
               scroll
               @click="to(item)"
@@ -118,7 +118,7 @@
         if (to.path !== this.mHome.path) {
           this.mValidator(to, () => {
             const matched = to.matched.find(v => v.meta.childrenAgent) || to.matched[to.matched.length - 1];
-            let tab = this.tabs.find(v => v.path === matched.path);
+            let tab = this.tabs.find(v => v.toPath === to.path);
             if (!tab) {
               tab = this.getTab(matched);
               this.tabs.push(tab);
@@ -197,7 +197,7 @@
           this.tabsClose(tabs);
         }
       },
-      tabsClose: async function (_tabs) {
+      async tabsClose(_tabs) {
         const {tabs, history} = this;
         for (let tab of _tabs) {
           if (await this.tabsCloseBefore(tab)) {
@@ -206,12 +206,12 @@
             this.$ea.$emit('tabs-close-after', tab);
           }
         }
-        let _history = history.filter(([path]) => tabs.some(v => v.path === path));
+        let _history = history.filter(([, toPath]) => tabs.some(v => v.toPath === toPath));
         if (_history.length !== history.length) {
           history.splice(0, history.length);
           history.push(..._history);
         }
-        if (!tabs.some(v => v.path === this.path)) {
+        if (!tabs.some(v => v.toPath === this.path)) {
           let path = history.length ? history[history.length - 1][1] : this.mHome.path;
           this.$router.push(path);
         }
@@ -224,7 +224,7 @@
        * @param tab
        * @returns {Promise<boolean>}
        */
-      tabsCloseBefore: async function (tab) {
+      async tabsCloseBefore(tab) {
         const events = this.$ea._events['tabs-close-before'];
         if (events && events.length) {
           for (let cb of events) {
