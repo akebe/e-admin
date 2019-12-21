@@ -96,7 +96,7 @@
             width: `${this.$el.offsetWidth}px`,
             zIndex: this.zIndex,
           };
-          this.$emit('on-change', true);
+          this.$emit('change', true);
         } else if ((elOffset.top - this.offsetTop) > scrollTop && this.offsetType === 'top' && affix) {
           this.slot = false;
           this.slotStyle = {};
@@ -104,7 +104,7 @@
           this.styles = {
             zIndex: this.zIndex,
           };
-          this.$emit('on-change', false);
+          this.$emit('change', false);
         }
         // Fixed Bottom
         if ((elOffset.top + this.offsetBottom + elHeight) > (scrollTop + windowHeight) && this.offsetType === 'bottom' && !affix) {
@@ -115,13 +115,13 @@
             width: `${this.$el.offsetWidth}px`,
             zIndex: this.zIndex,
           };
-          this.$emit('on-change', true);
+          this.$emit('change', true);
         } else if ((elOffset.top + this.offsetBottom + elHeight) < (scrollTop + windowHeight) && this.offsetType === 'bottom' && affix) {
           this.affix = false;
           this.styles = {
             zIndex: this.zIndex,
           };
-          this.$emit('on-change', false);
+          this.$emit('change', false);
         }
       },
     },
