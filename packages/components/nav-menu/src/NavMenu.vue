@@ -92,7 +92,7 @@
         for (let v of data.children) {
           if (v.visible === false) continue;
           index += 1;
-          if (v.children && v.children.length) {
+          if (v.children && v.children.filter(v => v.visible !== false).length) {
             children.push(createElMenu(v, vm, `${opt.props.index}${index}`));
           } else {
             children.push(createElMenuItem(v));
@@ -132,7 +132,7 @@
           if (v.visible === false) continue;
           index += 1;
           if (!v.group) {
-            if (v.children && v.children.length) {
+            if (v.children && v.children.filter(v => v.visible !== false).length) {
               children.push(createElMenu(v, vm, `${opt.props.index}${index}`));
             } else {
               children.push(createElMenuItem(v));
