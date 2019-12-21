@@ -12,13 +12,14 @@ import App from './App.vue';
 import router from './router';
 
 import ElementUI from 'element-ui';
+import ElImageViewer from 'element-ui/packages/image/src/image-viewer';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import Ea from 'e-admin';
 import 'e-admin/lib/index.css';
 
-
 Vue.use(ElementUI).use(Ea);
+Vue.component(ElImageViewer.name, ElImageViewer);
 
 Vue.config.productionTip = false;
 

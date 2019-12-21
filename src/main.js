@@ -11,6 +11,8 @@ import 'e-admin/lib/index.css';
 //import Ea from '../lib/index.umd.js';
 //import '../lib/index.css';
 
+//import Ea from '../packages/index.js';
+
 import 'prismjs/themes/prism.css';
 import '@/style/markdown-segmentfault.css';
 import '@/style/index.less';

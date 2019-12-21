@@ -19,3 +19,9 @@ EaNavMenu  支持visible配置
 ####0.3.0 & 0.3.1  
 2019/12/21   
 新增EaAffix组件
+####0.3.2
+2019/12/21   
+EaNavMenu  children全部隐藏的状态下不渲染子菜单
+EaTabs  修复无法匹配动态路由的问题
+EaView 修复动态路由滚动条记录错误的问题
+EaView 添加多页共活解决方案
