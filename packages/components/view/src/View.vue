@@ -3,9 +3,9 @@
        :style="mStyle"
        v-loading="loading"
        :element-loading-text="loadingText">
-    <slot></slot>
+    <slot/>
     <slot name="backtop">
-      <el-backtop v-if="backtop"></el-backtop>
+      <el-backtop v-if="backtop"/>
     </slot>
   </div>
 </template>
@@ -46,7 +46,7 @@
     watch: {},
     data() {
       return {
-        scrollTop: 0,
+        scrollTop: {},
       };
     },
     computed: {
@@ -80,27 +80,42 @@
       beforeEach(to, from, next) {
         const parentName = this.$parent.$options.name;
         if (parentName === from.name) {
-          this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+          const path = from.path;
+          this.scrollTop[path] = document.documentElement.scrollTop || document.body.scrollTop;
         }
         next();
       },
-    },
-    activated() {
-      if (this.scrollRecord) {
-        document.documentElement.scrollTop = document.body.scrollTop = this.scrollTop;
-      }
+      afterEach(to) {
+        if (this.scrollRecord) {
+          const parentName = this.$parent.$options.name;
+          if (parentName === to.name) {
+            const path = to.path;
+            this.$nextTick(() => {
+              document.documentElement.scrollTop = document.body.scrollTop = this.scrollTop[path] || 0;
+            });
+          }
+        }
+      },
     },
     mounted() {
       // 绑定 beforeEach
       this.$router.beforeEach(this.beforeEach);
 
-      document.documentElement.scrollTop = document.body.scrollTop = this.scrollTop;
+      // 绑定 afterHooks
+      this.$router.afterEach(this.afterEach);
+
+      document.documentElement.scrollTop = document.body.scrollTop = 0;
     },
     beforeDestroy() {
       // 解除 beforeEach
-      const index = this.$router.beforeHooks.indexOf(this.beforeEach);
+      let index = this.$router.beforeHooks.indexOf(this.beforeEach);
       if (index > -1) {
         this.$router.beforeHooks.splice(index, 1);
+      }
+      // 解除 afterHooks
+      index = this.$router.afterHooks.indexOf(this.afterEach);
+      if (index > -1) {
+        this.$router.afterHooks.splice(index, 1);
       }
     },
   };
