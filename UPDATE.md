@@ -16,3 +16,6 @@ EaLogo  适配单logo样式
 2019/12/20   
 EaTabs  title自适应 
 EaNavMenu  支持visible配置
+####0.3.0  
+2019/12/21   
+新增EaAffix组件
