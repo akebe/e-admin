@@ -99,8 +99,8 @@
       },
     },
     methods: {
-      to({path, toPath}) {
-        this.$router.push(toPath || path);
+      to({path, toPath, fullPath}) {
+        this.$router.push(fullPath || toPath || path);
       },
       mValidator(to, done) {
         const matched = to.matched[to.matched.length - 1];
@@ -122,6 +122,7 @@
               this.tabs.push(tab);
             }
             tab.toPath = to.path;
+            tab.fullPath = to.fullPath;
             tab.params = to.params;
             this.history.push([matched.path, to.path]);
           });
