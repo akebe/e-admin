@@ -1,26 +1,16 @@
 import logo from '@/assets/logo.svg';
 
 export default [
+
   {
-    title: '开发指南',
+    title: '安装',
+    path: '/install',
+    icon: 'iconfont icon-install',
+  },
+  {
+    title: '更新日志',
+    path: '/update',
     icon: 'el-icon-s-promotion',
-    children: [
-      {
-        title: '安装',
-        path: '/install',
-        icon: 'iconfont icon-install',
-      },
-      {
-        title: 'vue-router',
-        path: '/router',
-        icon: 'iconfont icon-router',
-      },
-      {
-        title: 'vuex',
-        path: '/vuex',
-        icon: 'iconfont icon-vue',
-      },
-    ],
   },
   {
     title: '组件',

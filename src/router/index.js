@@ -11,6 +11,8 @@ const Index = () =>
   import ( /* webpackChunkName: "index" */ '@/views/Index.vue');
 const Intro = () =>
   import ( /* webpackChunkName: "index" */ '@/views/intro/Intro.vue');
+const Update = () =>
+  import ( /* webpackChunkName: "update" */ '@/views/update/Update.vue');
 const Login = () =>
   import ( /* webpackChunkName: "login" */ '@/views/Login.vue');
 const Install = () =>
@@ -72,6 +74,11 @@ const router = new VueRouter({
           path: '/install',
           name: 'Install',
           component: Install,
+        },
+        {
+          path: '/update',
+          name: 'Update',
+          component: Update,
         },
         {
           path: '/admin',
