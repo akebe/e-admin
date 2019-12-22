@@ -36,8 +36,12 @@
     name: 'EaAffix',
     components: {},
     props: {
+      affix: {
+        type: Boolean,
+        default: true,
+      },
       offsetTop: {
-        type: Number,
+        type: [Number, Boolean],
         default: 0,
       },
       offsetBottom: {
@@ -48,10 +52,22 @@
         default: 1000,
       },
     },
-    watch: {},
+    watch: {
+      affix(v) {
+        if (!v && this.mAffix) {
+          this.slot = false;
+          this.slotStyle = {};
+          this.mAffix = false;
+          this.styles = {
+            zIndex: this.zIndex,
+          };
+          this.$emit('change', false);
+        }
+      },
+    },
     data() {
       return {
-        affix: false,
+        mAffix: false,
         styles: {
           zIndex: this.zIndex,
         },
@@ -70,21 +86,22 @@
       classes() {
         return [
           {
-            [`${prefixCls}`]: this.affix,
+            [`${prefixCls}`]: this.mAffix,
           },
         ];
       },
     },
     methods: {
       handleScroll() {
-        const affix = this.affix;
+        if (!this.affix) return false;
+        const affix = this.mAffix;
         const scrollTop = getScroll(window, true);
         const elOffset = getOffset(this.$el);
         const windowHeight = window.innerHeight;
         const elHeight = this.$el.getElementsByTagName('div')[0].offsetHeight;
         // Fixed Top
         if ((elOffset.top - this.offsetTop) < scrollTop && this.offsetType === 'top' && !affix) {
-          this.affix = true;
+          this.mAffix = true;
           this.slotStyle = {
             width: this.$refs.point.clientWidth + 'px',
             height: this.$refs.point.clientHeight + 'px',
@@ -100,7 +117,7 @@
         } else if ((elOffset.top - this.offsetTop) > scrollTop && this.offsetType === 'top' && affix) {
           this.slot = false;
           this.slotStyle = {};
-          this.affix = false;
+          this.mAffix = false;
           this.styles = {
             zIndex: this.zIndex,
           };
@@ -108,7 +125,7 @@
         }
         // Fixed Bottom
         if ((elOffset.top + this.offsetBottom + elHeight) > (scrollTop + windowHeight) && this.offsetType === 'bottom' && !affix) {
-          this.affix = true;
+          this.mAffix = true;
           this.styles = {
             bottom: `${this.offsetBottom}px`,
             left: `${elOffset.left}px`,
@@ -117,7 +134,7 @@
           };
           this.$emit('change', true);
         } else if ((elOffset.top + this.offsetBottom + elHeight) < (scrollTop + windowHeight) && this.offsetType === 'bottom' && affix) {
-          this.affix = false;
+          this.mAffix = false;
           this.styles = {
             zIndex: this.zIndex,
           };

@@ -2,10 +2,15 @@
   <ea-view center>
     <affix-md>
       <template v-slot:top>
-        <ea-affix :offset-top="100" @change="v => $message.success(`ea-affix change: ${v}`)">
+        <ea-affix :offset-top="100" :affix="offsetTop" @change="v => $message.success(`ea-affix change: ${v}`)">
           <demo-block>
             <template v-slot:source>
               向下滚动，这个代码示例区块会被固定在距离屏幕顶部<code>100px</code>的位置
+              <div>
+                <el-button @click="offsetTop = !offsetTop">
+                  {{offsetTop ? '取消固定' : '固定'}}
+                </el-button>
+              </div>
             </template>
             <template v-slot:highlight>
               <top-md/>
@@ -14,10 +19,15 @@
         </ea-affix>
       </template>
       <template v-slot:bottom>
-        <ea-affix :offset-bottom="100">
+        <ea-affix :offset-bottom="100" :affix="offsetBottom">
           <demo-block>
             <template v-slot:source>
               向上滚动，这个代码示例区块会被固定在距离屏幕底部<code>100px</code>的位置
+              <div>
+                <el-button @click="offsetBottom = !offsetBottom">
+                  {{offsetBottom ? '取消固定' : '固定'}}
+                </el-button>
+              </div>
             </template>
             <template v-slot:highlight>
               <bottom-md/>
@@ -54,6 +64,8 @@
       return {
         attributes,
         events,
+        offsetTop: true,
+        offsetBottom: true,
       };
     },
     computed: {},
