@@ -47,6 +47,7 @@
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
+        <el-button @click="tabsClose()">关闭这个标签页</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -110,6 +111,9 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       },
+      tabsClose(){
+        this.$ea.tabsClose()
+      }
     },
   };
 </script>

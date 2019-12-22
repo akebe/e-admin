@@ -51,7 +51,6 @@
           <el-dropdown-item command="other" icon="el-icon-document-delete">关闭其他标签页</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-
     </div>
   </div>
 </template>
@@ -253,7 +252,7 @@
         }, 301);
       });
       this.$ea.tabsClose = (path) => {
-        const tab = this.tabs.find(v => v.path === (path || this.path));
+        const tab = this.tabs.find(v => v.toPath === (path || this.path));
         if (tab) {
           this.tabsClose([tab]);
         }
