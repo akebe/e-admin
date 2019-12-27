@@ -121,6 +121,23 @@ const router = new VueRouter({
           props: true,
           name: 'SingleView',
           component: SingleView,
+          meta:{
+            tabs: {
+              title: 'SingleView1',
+              onOpen(tab) {
+                // eslint-disable-next-line no-console
+                console.log('tab-open:router', tab);
+                if (tab.route.params.id === '103') {
+                  tab.title = 'lucky number';
+                }
+              },
+              onClose(tab) {
+                // eslint-disable-next-line no-console
+                console.log('tab-close:router', tab);
+              },
+            },
+          }
+
         },
         {
           path: '/image',

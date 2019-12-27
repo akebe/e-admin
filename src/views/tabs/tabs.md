@@ -9,7 +9,7 @@
 <slot name="collapse"></slot>
 
 ###tabs标签展示内容设置
-`tabs`的展示内容可以通过`route`来设置，支持以下内容
+`tabs`的展示内容可以通过`route.meta.tabs`来设置，支持以下内容
 ```
 {
   path: '/ea-tabs',
@@ -20,6 +20,8 @@
       title: '左侧菜单',        // 1.显示的标题
       icon: 'ea-icon-tabs',    // 显示图标
       src: '/img/tabs.svg',    // 以图片展示图标
+      onOpen(tab, first) {},   // 监听标签打开 [可以动态改变tab.title || tab.icon]
+      onClose(tab) {},         // 监听标签关闭
     },
     title: '左侧菜单',          // 2.没有tabs的情况下匹配这个标题
   },

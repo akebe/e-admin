@@ -23,7 +23,7 @@
     </template>
     <template v-slot:side>
       <ea-logo
-          name="e-admin"
+          :name="name"
           :logo="logo"
           v-if="logoVisible"
           logo-type="image"
@@ -40,6 +40,7 @@
   import navData from './nav-data';
   import logo from '@/assets/logo.svg';
   import store from '@/store';
+  import {version} from '../../package.json';
 
   export default {
     name: 'Index',
@@ -52,6 +53,8 @@
         unread: 10,
         collapse: false,
         active: '',
+        name: `e-admin`,
+        version,
         logo,
         navData,
         tabsCollapseActive: true,

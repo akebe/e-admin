@@ -18,6 +18,8 @@
     children: [         // 子菜单， group 为 true 的情况下此项被解析为分组菜单
       ...
     ],
+    onOpen(tab, first) {},   // 监听标签打开 作为参数传给ea-tabs生效
+    onClose(tab) {},         // 监听标签关闭 作为参数传给ea-tabs生效
   },
 ]
 ```

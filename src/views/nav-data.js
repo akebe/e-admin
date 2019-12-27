@@ -53,6 +53,17 @@ export default [
               {
                 title: 'MultiView',
                 path: '/view/multi/:id',
+                onOpen(tab) {
+                  // eslint-disable-next-line no-console
+                  console.log('tab-open:nav-data', tab);
+                  if (tab.route.params.id === '103') {
+                    tab.title = 'lucky number';
+                  }
+                },
+                onClose(tab) {
+                  // eslint-disable-next-line no-console
+                  console.log('tab-close:nav-data', tab);
+                },
                 visible: false,
               },
               {
