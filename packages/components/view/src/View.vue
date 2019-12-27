@@ -108,7 +108,7 @@
         if (this.paramsKey) {
           const parentName = this.$parent.$options.name;
           if (parentName === tab.name) {
-            const key = tab.params[this.paramsKey],
+            const key = tab.route.params[this.paramsKey],
               index = this.keys.indexOf(key);
             if (index > -1) {
               this.keys.splice(index, 1);

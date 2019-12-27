@@ -117,14 +117,18 @@
           this.mValidator(to, () => {
             const matched = to.matched.find(v => v.meta.childrenAgent) || to.matched[to.matched.length - 1];
             let tab = this.tabs.find(v => v.toPath === to.path);
-            if (!tab) {
+            const first = !tab;
+            if (first) {
               tab = this.getTab(matched);
               this.tabs.push(tab);
             }
             tab.toPath = to.path;
             tab.fullPath = to.fullPath;
-            tab.params = to.params;
+            tab.route = to;
             this.history.push([matched.path, to.path]);
+            if (typeof tab.onOpen === 'function') {
+              tab.onOpen(tab, first);
+            }
           });
         }
       },
@@ -204,6 +208,9 @@
             const index = tabs.indexOf(tab);
             tabs.splice(index, 1);
             this.$ea.$emit('tabs-close-after', tab);
+            if (typeof tab.onClose === 'function') {
+              tab.onClose(tab);
+            }
           }
         }
         let _history = history.filter(([, toPath]) => tabs.some(v => v.toPath === toPath));
