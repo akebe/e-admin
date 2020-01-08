@@ -41,7 +41,10 @@
       hover: Boolean,
       error: Boolean,
       mask: Boolean,
-      fit: String,
+      fit: {
+        type: String,
+        default: 'cover',
+      },
       size: {
         type: [String, Number],
         default: 'medium',

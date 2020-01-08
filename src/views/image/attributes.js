@@ -81,7 +81,7 @@ export default [
     desc: '确定图片如何适应容器框，同原生 object-fit',
     type: 'String',
     enum: 'fill / contain / cover / none / scale-down',
-    default: '',
+    default: 'cover',
   },
   {
     prop: 'shape',
