@@ -73,8 +73,8 @@
       <div class="el-upload__tip">可以将图片拖到此处上传</div>
     </div>
     <div slot="footer">
-      <el-button type="primary" :size="size" icon="el-icon-picture-outline" @click="confirm">确 定</el-button>
       <el-button :size="size" @click="cancel">取 消</el-button>
+      <el-button type="primary" :size="size" icon="el-icon-picture-outline" @click="confirm">确 定</el-button>
     </div>
   </el-dialog>
 </template>
