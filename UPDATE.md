@@ -1,4 +1,10 @@
 #更新日志
+####0.3.6
+`2020/01/08`
+[EaImage](#/image) fit默认值改为`cover`
+[EaImageDialog](#/image-dialog) 确定按钮位置调整到右侧
+[EaView](#/view) 添加配置项`body-class`
+
 ####0.3.5
 `2019/12/27`
 [EaTabs](#/tabs) 添加配置项`onOpen`，`onClose`钩子
