@@ -55,4 +55,11 @@ export default [
     enum: '-',
     default: '-',
   },
+  {
+    prop: 'body-class',
+    desc: '插入后台body的class，标签激活状态下生效',
+    type: 'String',
+    enum: '-',
+    default: '-',
+  },
 ];

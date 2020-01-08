@@ -20,7 +20,7 @@
         v-if="sideVisible">
       <slot name="side"></slot>
     </div>
-    <div class="_body"
+    <div :class="bodyClasses"
          :style="bodyStyle">
       <slot>
         <keep-alive :include="include">
@@ -61,6 +61,7 @@
         headerHeight: 40,
         tabsHeight: 40,
         Ea: {},
+        bodyClass: '',
       };
     },
     computed: {
@@ -99,6 +100,9 @@
           'ea-admin': true,
           'ea-admin_collapse': this.mCollapse,
         };
+      },
+      bodyClasses() {
+        return `_body ${this.bodyClass}`
       },
       include() {
         const tabs = this.$ea.config.page.tabs;

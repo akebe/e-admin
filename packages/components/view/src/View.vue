@@ -43,6 +43,10 @@
         default: true,
       },
       paramsKey: String,
+      bodyClass: {
+        type: String,
+        default: '',
+      },
     },
     watch: {},
     data() {
@@ -85,6 +89,7 @@
         if (parentName === from.name) {
           const path = from.path;
           this.scrollTop[path] = document.documentElement.scrollTop || document.body.scrollTop;
+          this.$parent.$parent.bodyClass = '';
         }
         next();
       },
@@ -102,6 +107,7 @@
             if (key && !this.keys.includes(key)) this.keys.push(key);
             this.active = key;
           }
+          this.$parent.$parent.bodyClass = this.bodyClass;
         }
       },
       tabsCloseAfter(tab) {
