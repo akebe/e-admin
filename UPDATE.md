@@ -1,7 +1,11 @@
 #更新日志
+####0.3.7
+`2020/01/11`
+修复因全局`font: inherit`引起`element-ui`组件表现不一致的问题
+
 ####0.3.6
 `2020/01/08`
-[EaImage](#/image) fit默认值改为`cover`
+[EaImage](#/image) `fit`默认值改为`cover`
 [EaImageDialog](#/image-dialog) 确定按钮位置调整到右侧
 [EaView](#/view) 添加配置项`body-class`
 
