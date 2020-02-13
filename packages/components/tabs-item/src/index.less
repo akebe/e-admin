@@ -8,7 +8,9 @@
   cursor: pointer;
   color: @text-main;
   font-size: 13px;
+  vertical-align: top;
   border-radius: @border-radius @border-radius 0 0;
+
   img._icon {
     width: 15px;
     height: 15px;
@@ -18,12 +20,15 @@
   .el-icon-close {
     border-radius: 50%;
     width: 14px;
+
     &::before {
       display: none;
     }
+
     &:hover {
       background-color: @tabs-background-color - #333;
     }
+
     &:active {
       background-color: @tabs-background-color - #555;
     }
@@ -31,6 +36,7 @@
 
   &:hover {
     background-color: @tabs-background-color - #111;
+
     .el-icon-close::before {
       display: inline;
     }
@@ -40,6 +46,7 @@
     background-color: @white;
     border-left: @border;
     border-right: @border;
+
     .el-icon-close::before {
       display: inline;
     }
