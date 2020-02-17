@@ -93,6 +93,7 @@ function strLen(str) {
 }
 
 function getElementHeight(el) {
+  if (!(el instanceof Element)) return 0;
   let height = 0;
   let style = window.getComputedStyle(el, null);
   height += +style.height.replace(/[^0-9|.|-]/ig, '');
