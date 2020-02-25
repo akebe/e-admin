@@ -33,7 +33,7 @@
   }
 
   export default {
-    name: 'Affix',
+    name: 'EaAffix',
     components: {},
     props: {
       affix: {
