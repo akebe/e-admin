@@ -33,7 +33,7 @@
   }
 
   export default {
-    name: 'EaAffix',
+    name: 'Affix',
     components: {},
     props: {
       affix: {
@@ -99,6 +99,7 @@
         const elOffset = getOffset(this.$el);
         const windowHeight = window.innerHeight;
         const elHeight = this.$el.getElementsByTagName('div')[0].offsetHeight;
+
         // Fixed Top
         if ((elOffset.top - this.offsetTop) < scrollTop && this.offsetType === 'top' && !affix) {
           this.mAffix = true;
@@ -140,6 +141,10 @@
           };
           this.$emit('change', false);
         }
+
+        if (this.styles.left && `${elOffset.left}px` !== this.styles.left) {
+          this.styles.left = `${elOffset.left}px`;
+        }
       },
     },
     created() {
@@ -147,6 +152,9 @@
     mounted() {
       window.addEventListener('scroll', this.handleScroll, false);
       window.addEventListener('resize', this.handleScroll, false);
+      this.$nextTick(() => {
+        this.handleScroll();
+      });
     },
     beforeDestroy() {
       window.removeEventListener('scroll', this.handleScroll, false);
