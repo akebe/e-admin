@@ -153,7 +153,7 @@
       childrenMounted(vm) {
         this.children.push({
           _uid: vm._uid,
-          width: vm.$el.clientWidth,
+          width: vm.$el.offsetWidth,
         });
         this.handleArrow();
       },
@@ -166,7 +166,7 @@
       },
       handleArrow() {
         if (this.$refs.scroll) {
-          let centerWidth = this.$refs.scroll.clientWidth,
+          let centerWidth = this.$refs.scroll.offsetWidth,
             childrenWidth = this.children.reduce((width, v) => width + v.width, 0);
           this.arrowWidth = childrenWidth - centerWidth;
           if (this.arrowWidth < 0) this.arrowWidth = 0;
