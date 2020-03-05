@@ -34,6 +34,14 @@ export default [
             title: '标签栏',
             path: '/tabs',
             icon: 'iconfont icon-tabs',
+            children: [
+              {
+                title: '标签栏标题长长长长长长长长长长长长长长长长',
+                path: '/tabs/overflow',
+                icon: 'iconfont icon-tabs',
+                visible: false,
+              },
+            ],
           },
           {
             title: '导航菜单',

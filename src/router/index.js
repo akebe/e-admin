@@ -25,6 +25,8 @@ const Header = () =>
   import ( /* webpackChunkName: "ea-header" */ '@/views/header/Header.vue');
 const Tabs = () =>
   import ( /* webpackChunkName: "ea-tabs" */ '@/views/tabs/Tabs.vue');
+const TabsOverflow = () =>
+  import ( /* webpackChunkName: "ea-tabs" */ '@/views/tabs/TabsOverflow.vue');
 const Logo = () =>
   import ( /* webpackChunkName: "ea-logo" */ '@/views/logo/Logo.vue');
 const NavMenu = () =>
@@ -96,6 +98,11 @@ const router = new VueRouter({
           component: Tabs,
         },
         {
+          path: '/tabs/overflow',
+          name: 'TabsOverflow',
+          component: TabsOverflow,
+        },
+        {
           path: '/logo',
           name: 'Logo',
           component: Logo,
@@ -121,7 +128,7 @@ const router = new VueRouter({
           props: true,
           name: 'SingleView',
           component: SingleView,
-          meta:{
+          meta: {
             tabs: {
               title: 'SingleView1',
               onOpen(tab) {
@@ -136,7 +143,7 @@ const router = new VueRouter({
                 console.log('tab-close:router', tab);
               },
             },
-          }
+          },
 
         },
         {

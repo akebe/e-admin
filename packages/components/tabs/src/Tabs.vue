@@ -2,48 +2,49 @@
   <div class="ea-tabs">
     <div class="_wrap">
       <ea-tabs-item
-          v-if="collapse !== 'false'"
-          @click="mCollapse = !mCollapse"
-          :icon="`ea-icon-page-arrow-${mCollapse ? 'right' : 'left'}`">
-      </ea-tabs-item>
+        v-if="collapse !== 'false'"
+        :icon="`ea-icon-page-arrow-${mCollapse ? 'right' : 'left'}`"
+        @click="mCollapse = !mCollapse"
+      />
       <ea-tabs-item
-          icon="el-icon-d-arrow-left"
-          @click="arrowLeft(100)"
-          v-longpress="()=> arrowLeft(30)"
-          v-if="arrowWidth > 0">
-      </ea-tabs-item>
+        v-if="arrowWidth > 0"
+        v-longpress="()=> arrowLeft(30)"
+        icon="el-icon-d-arrow-left"
+        @click="arrowLeft(100)"
+      />
       <div class="_scroll" ref="scroll">
         <div class="_nav" :style="`transform: translateX(${arrowX}px)`">
           <ea-tabs-item
-              :title="mHome.title"
-              :src="mHome.src"
-              :icon="mHome.icon"
-              :active="path === mHome.path"
-              scroll
-              @click="to(mHome)"
-          ></ea-tabs-item>
+            scroll
+            :title="mHome.title"
+            :src="mHome.src"
+            :icon="mHome.icon"
+            :active="path === mHome.path"
+            @click="to(mHome)"
+          />
           <ea-tabs-item
-              v-for="item in tabs"
-              :key="item.toPath"
-              :title="item.title"
-              :src="item.src"
-              :icon="item.icon"
-              :active="path === item.toPath"
-              closable
-              scroll
-              @click="to(item)"
-              @close="tabsClose([item])"
-          ></ea-tabs-item>
+            v-for="item in tabs"
+            closable
+            scroll
+            :key="item.toPath"
+            :title="item.title"
+            :src="item.src"
+            :icon="item.icon"
+            :active="path === item.toPath"
+            :popover="item.popover !== false"
+            @click="to(item)"
+            @close="tabsClose([item])"
+          />
         </div>
       </div>
       <ea-tabs-item
-          icon="el-icon-d-arrow-right"
-          @click="arrowRight(100)"
-          v-longpress="()=> arrowRight(30)"
-          v-if="arrowWidth > 0">
-      </ea-tabs-item>
+        v-if="arrowWidth > 0"
+        v-longpress="()=> arrowRight(30)"
+        icon="el-icon-d-arrow-right"
+        @click="arrowRight(100)"
+      />
       <el-dropdown @command="tabsCloseByCommand">
-        <ea-tabs-item icon="el-icon-caret-bottom"></ea-tabs-item>
+        <ea-tabs-item icon="el-icon-caret-bottom"/>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="refresh" icon="el-icon-refresh">刷新</el-dropdown-item>
           <el-dropdown-item command="left" icon="el-icon-back">关闭左侧标签</el-dropdown-item>

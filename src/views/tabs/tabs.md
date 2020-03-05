@@ -20,6 +20,7 @@
       title: '左侧菜单',        // 1.显示的标题
       icon: 'ea-icon-tabs',    // 显示图标
       src: '/img/tabs.svg',    // 以图片展示图标
+      popover: false,          // 这个标签项不显示 el-popover弹层
       onOpen(tab, first) {},   // 监听标签打开 [可以动态改变tab.title || tab.icon]
       onClose(tab) {},         // 监听标签关闭
     },
@@ -85,5 +86,9 @@ this.$ea.$on('tabs-close-after', tab => {
 在全局提供了一个标签关闭方法 `this.$ea.tabsClose(path)`;
 接受的参数是路由路径 `$route.path`,如果不传参默认关闭当前打开的标签页。
 请注意全局`$ea.tabsClose(path)`与实例`$refs.tabs.tabsClose(tabs)`不是同一个方法，后者接受的参数是已打开`tabs`的缓存数组，如果默认配置没变，该缓存能在`this.$ea.config.page.tabs`得到。
+
+长标题标签及popover
+[通过这个链接打开一个长标题标签](#/tabs/overflow)
+
 
 <slot name="table"></slot>
