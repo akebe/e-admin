@@ -1,12 +1,17 @@
 <template>
-  <div :class="classes" :style="styles" @click="onClick">
-    <img class="_img"
-         v-show="src && !loading && !isError"
-         :src="src"
-         :style="{'object-fit': this.fit}"
-         @load="onLoad"
-         @click="clickHandler"
-         @error="onError"/>
+  <div
+    :class="classes"
+    :style="styles"
+    @click="onClick"
+  >
+    <img
+      v-show="src && !loading && !isError"
+      class="_img"
+      :src="src"
+      :style="{'object-fit': this.fit}"
+      @load="onLoad"
+      @click="clickHandler"
+      @error="onError"/>
     <span class="_span" v-if="icon && !isLoad || loading || isError">
       <i v-if="icon && !isLoad && !loading && !isError" :class="icon"/>
       <slot name="loading" v-if="loading">
@@ -21,11 +26,13 @@
     </div>
     <template v-if="preview">
       <el-image-viewer
-          :z-index="zIndex"
-          :initial-index="imageIndex"
-          v-show="showViewer"
-          :on-close="closeViewer"
-          :url-list="previewSrcList"/>
+        v-show="showViewer"
+        ref="viewer"
+        :z-index="zIndex"
+        :initial-index="imageIndex"
+        :url-list="previewSrcList"
+        :on-close="closeViewer"
+      />
     </template>
   </div>
 </template>
@@ -77,6 +84,11 @@
         }
         this.isLoad = false;
       },
+      imageIndex(index){
+        if (this.$refs.viewer) {
+          this.$refs.viewer.index = index;
+        }
+      }
     },
     data() {
       return {
@@ -162,10 +174,6 @@
         this.loading = false;
         this.$emit('error', event);
       },
-    },
-    created() {
-    },
-    mounted() {
     },
   };
 </script>
