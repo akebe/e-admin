@@ -29,4 +29,18 @@ export default [
     enum: '-',
     default: '-',
   },
+  {
+    prop: 'drag',
+    desc: '是否支持标签拖动',
+    type: 'Boolean',
+    enum: '-',
+    default: 'true',
+  },
+  {
+    prop: 'storage',
+    desc: '是否缓存已打开的标签 参数值会被用作localStorage的key，你可以为不同的用户配置不同的key',
+    type: 'Boolean / Number / String',
+    enum: '-',
+    default: 'false',
+  },
 ];

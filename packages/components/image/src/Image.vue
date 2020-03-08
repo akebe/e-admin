@@ -11,7 +11,8 @@
       :style="{'object-fit': this.fit}"
       @load="onLoad"
       @click="clickHandler"
-      @error="onError"/>
+      @error="onError"
+    />
     <span class="_span" v-if="icon && !isLoad || loading || isError">
       <i v-if="icon && !isLoad && !loading && !isError" :class="icon"/>
       <slot name="loading" v-if="loading">
@@ -84,11 +85,11 @@
         }
         this.isLoad = false;
       },
-      imageIndex(index){
+      imageIndex(index) {
         if (this.$refs.viewer) {
           this.$refs.viewer.index = index;
         }
-      }
+      },
     },
     data() {
       return {

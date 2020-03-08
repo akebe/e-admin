@@ -19,6 +19,7 @@
       <ea-tabs
         :collapse.sync="tabsCollapse"
         :nav-data="tabsNavData"
+        storage
       />
     </template>
     <template v-slot:side>
