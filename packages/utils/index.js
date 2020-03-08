@@ -1,4 +1,5 @@
-import reg from './reg';
+import reg from './reg.js';
+import scrollTo from './scroll-to.js';
 
 const UtilsOptions = {
   // 小数点后默认保留位置
@@ -111,6 +112,7 @@ const Utils = {
   cloneDeep,
   arrayChildrenFlatten,
   strLen,
+  scrollTo,
   reg,
   getElementHeight,
 };
