@@ -20,20 +20,27 @@
             :src="mHome.src"
             :icon="mHome.icon"
             :active="path === mHome.path"
+            :class="{'drag-rgt': dragIndex === 0}"
             @click="to(mHome)"
           />
           <ea-tabs-item
-            v-for="item in tabs"
+            v-for="(item, index) in tabs"
             closable
             scroll
+            :drag="drag"
             :key="item.toPath"
             :title="item.title"
             :src="item.src"
             :icon="item.icon"
             :active="path === item.toPath"
             :popover="item.popover !== false"
+            :class="{'drag-lft': index === dragIndex , 'drag-rgt': index === dragIndex- 1}"
             @click="to(item)"
             @close="tabsClose([item])"
+            @dragenter="dragIndex = index"
+            @dragleave="dragIndex = -1"
+            @dragend="dragend(index)"
+
           />
         </div>
       </div>
@@ -59,6 +66,8 @@
   import ConfigMixins from '../../../mixins/config';
   import longpress from '../../../directive/longpress';
 
+  const StorageKey = '__e-admin-tabs__';
+
   export default {
     name: 'EaTabs',
     mixins: [ConfigMixins({
@@ -77,10 +86,23 @@
       },
       //标签缓存验证函数(route, done)
       validator: Function,
+      drag: {
+        type: Boolean,
+        default: true,
+      },
+      storage: [Boolean, Number, String],
     },
     watch: {
       '$route'(to) {
         this.routeAfterEach(to);
+      },
+      tabs(tabs) {
+        if (this.storage) {
+          window.localStorage.setItem(
+            `${this.storage}${StorageKey}`,
+            JSON.stringify(tabs.map(tab => ({...tab, route: undefined}))),
+          );
+        }
       },
     },
     data() {
@@ -92,6 +114,7 @@
         children: [],
         arrowWidth: 0,
         arrowX: 0,
+        dragIndex: -1,
       };
     },
     computed: {
@@ -100,6 +123,14 @@
       },
     },
     methods: {
+      dragend(index) {
+        if (this.dragIndex > -1 && this.dragIndex !== index) {
+          const tab = this.tabs[index];
+          this.$set(this.tabs, index, this.tabs[this.dragIndex]);
+          this.$set(this.tabs, this.dragIndex, tab);
+        }
+        this.dragIndex = -1;
+      },
       to({path, toPath, fullPath}) {
         this.$router.push(fullPath || toPath || path);
       },
@@ -246,6 +277,17 @@
       },
     },
     created() {
+      if (this.storage) {
+        try {
+          const tabs = window.localStorage.getItem(`${this.storage}${StorageKey}`);
+          if (tabs) {
+            this.tabs.push(...JSON.parse(tabs));
+          }
+        } catch (e) {
+          // eslint-disable-next-line no-console
+          console.error(e);
+        }
+      }
     },
     mounted() {
       this.routeAfterEach(this.$route);
