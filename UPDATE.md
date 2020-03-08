@@ -1,4 +1,9 @@
 #更新日志
+####0.4.0
+`2020/03/08`
+[Utils](#/utils) 新增`Utils.scrollTo`平滑滚动方法
+[EaScrollbar](#/scrollbar) 新增滚动容器组件
+
 ####0.3.16
 `2020/03/08`
 [EaTabs](#/admin) 添加`resize`事件
