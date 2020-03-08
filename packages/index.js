@@ -10,6 +10,7 @@ import LoadingBar from './components/loading-bar';
 import Login from './components/login';
 import Logo from './components/logo';
 import NavMenu from './components/nav-menu';
+import Scrollbar from './components/scrollbar';
 import Tabs from './components/tabs';
 import TabsItem from './components/tabs-item';
 import View from './components/view';
@@ -28,6 +29,7 @@ export {
   Login,
   Logo,
   NavMenu,
+  Scrollbar,
   Tabs,
   TabsItem,
   View,
@@ -52,6 +54,7 @@ export default {
       .use(Login)
       .use(Logo)
       .use(NavMenu)
+      .use(Scrollbar)
       .use(Tabs)
       .use(TabsItem)
       .use(View);

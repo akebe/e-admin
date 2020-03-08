@@ -1,0 +1,30 @@
+.ea-scrollbar {
+  position: relative;
+  overflow: hidden;
+
+  &__content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    width: calc(100% + 17px);
+    position: relative;
+  }
+
+  &__bar {
+    width: 7px;
+    top: 0;
+    right: 1px;
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #86898f;
+    opacity: 0.4;
+    transition: background-color .3s;
+
+    &:hover, &.active {
+      opacity: 0.6;
+    }
+  }
+}
+
