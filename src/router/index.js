@@ -41,6 +41,8 @@ const Image = () =>
   import ( /* webpackChunkName: "ea-image" */ '@/views/image/Image.vue');
 const ImageDialog = () =>
   import ( /* webpackChunkName: "ea-image-dialog" */ '@/views/image-dialog/ImageDialog.vue');
+const Scrollbar = () =>
+  import ( /* webpackChunkName: "ea-scrollbar" */ '@/views/scrollbar/Scrollbar.vue');
 
 Vue.use(VueRouter);
 
@@ -160,6 +162,11 @@ const router = new VueRouter({
           path: '/affix',
           name: 'Affix',
           component: Affix,
+        },
+        {
+          path: '/scrollbar',
+          name: 'Scrollbar',
+          component: Scrollbar,
         },
         ...Router,
         {

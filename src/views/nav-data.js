@@ -108,6 +108,11 @@ export default [
             path: '/affix',
             icon: 'iconfont icon-affix',
           },
+          {
+            title: 'Scrollbar',
+            path: '/scrollbar',
+            icon: 'iconfont icon-scrollbar',
+          },
         ],
       },
     ],
