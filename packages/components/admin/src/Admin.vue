@@ -1,27 +1,33 @@
 <template>
   <div :class="classes">
     <div
-        class="_header"
-        :style="headerStyle">
+      class="_header"
+      :style="headerStyle"
+    >
       <div
-          class="__tabs"
-          v-if="tabsVisible">
-        <slot name="tabs"></slot>
+        v-if="tabsVisible"
+        class="__tabs"
+      >
+        <slot name="tabs"/>
       </div>
       <div
-          class="__header"
-          :style="{height: `${headerShow ? headerHeight : 0}px`, opacity: headerShow ? 1 : 0}">
-        <slot name="header"></slot>
+        class="__header"
+        :style="{height: `${headerShow ? headerHeight : 0}px`, opacity: headerShow ? 1 : 0}"
+      >
+        <slot name="header"/>
       </div>
     </div>
     <div
-        :class="{_side: true, [`ea--${mTheme}`]: true}"
-        :style="sideStyle"
-        v-if="sideVisible">
-      <slot name="side"></slot>
+      v-if="sideVisible"
+      :class="{_side: true, [`ea--${mTheme}`]: true}"
+      :style="sideStyle"
+    >
+      <slot name="side"/>
     </div>
-    <div :class="bodyClasses"
-         :style="bodyStyle">
+    <div
+      :class="bodyClasses"
+      :style="bodyStyle"
+    >
       <slot>
         <keep-alive :include="include">
           <router-view/>
@@ -45,8 +51,6 @@
         sideMinWidth: [Number, String],
       }),
     ],
-    components: {},
-    props: {},
     watch: {
       mHeaderAutoHide() {
         this.headerShow = this.headerVisible;
@@ -90,10 +94,14 @@
         let top = 0;
         if (this.headerShow) top += this.headerHeight;
         if (this.tabsVisible) top += this.tabsHeight;
-        return {
+        const style = {
           top: `${top}px`,
           left: this.sideStyle.width,
         };
+        this.$nextTick(() => {
+          this.$emit('resize', style);
+        });
+        return style;
       },
       classes() {
         return {
@@ -102,7 +110,7 @@
         };
       },
       bodyClasses() {
-        return `_body ${this.bodyClass}`
+        return `_body ${this.bodyClass}`;
       },
       include() {
         const tabs = this.$ea.config.page.tabs;
@@ -115,8 +123,6 @@
           this.headerShow = e.deltaY <= 0;
         }
       },
-    },
-    created() {
     },
     mounted() {
       document.addEventListener('mousewheel', this.mouseWheel);

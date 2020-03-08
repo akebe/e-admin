@@ -3,31 +3,33 @@
 ###配置
 可按插槽名插入对应组件完成后台搭建，完整配置如下
 ```html
-<ea-admin>
+<ea-admin @resize="resize">
   <template v-slot:header>
     <ea-header
-        collapse="false"
-        :notice="0"
-        :user="user"
-        :nav-data="navData"
-    ></ea-header>
+      collapse="false"
+      :notice="0"
+      :fullscreen="fullscreen"
+      :nav-data="navData"
+      :user="user"
+      @command="handleCommand"
+    />
   </template>
   <template v-slot:tabs>
     <ea-tabs
-        :nav-data="navData"
-    ></ea-tabs>
+      :nav-data="navData"
+    />
   </template>
   <template v-slot:side>
     <ea-logo
-        name="e-admin"
-        :logo="logo"
-        logo-type="image"
-    ></ea-logo>
+      :name="name"
+      :logo="logo"
+      logo-type="image"
+    />
     <ea-nav-menu
-        router
-        :data="navData"
-        v-model="active"
-    ></ea-nav-menu>
+      v-model="active"
+      router
+      :data="navData"
+    />
   </template>
 </ea-admin>
 ```
@@ -44,7 +46,7 @@
 <slot name="collapse"></slot>
 
 ###头部自动隐藏
-为了能展示更多内容，当检测到鼠标向下滚动时`slot->header`会自动隐藏，这项配置默认启用，可通过`header-auto-hide`关闭  
+为了能展示更多内容，当检测到鼠标向下滚动时`slot->header`会自动隐藏，可通过`header-auto-hide`启用  
 
 <slot name="headerAutoHide"></slot>
 

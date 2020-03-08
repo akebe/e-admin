@@ -1,15 +1,15 @@
 <template>
-  <ea-admin>
+  <ea-admin @resize="resize">
     <template v-slot:header>
       <ea-header
-          :collapse.sync="headerCollapse"
-          :notice="notice"
-          :fullscreen="fullscreen"
-          :nav-data="headerNavData"
-          :user="user"
-          @command="handleCommand">
-        <div style="flex:1">
-        </div>
+        :collapse.sync="headerCollapse"
+        :notice="notice"
+        :fullscreen="fullscreen"
+        :nav-data="headerNavData"
+        :user="user"
+        @command="handleCommand"
+      >
+        <div style="flex:1"/>
         <div class="ea-hover">
           <a class="iconfont icon-github" target="_blank" href="https://github.com/akebe/e-admin"/>
         </div>
@@ -17,21 +17,21 @@
     </template>
     <template v-slot:tabs>
       <ea-tabs
-          :collapse.sync="tabsCollapse"
-          :nav-data="tabsNavData"
+        :collapse.sync="tabsCollapse"
+        :nav-data="tabsNavData"
       />
     </template>
     <template v-slot:side>
       <ea-logo
-          :name="name"
-          :logo="logo"
-          v-if="logoVisible"
-          logo-type="image"
+        v-if="logoVisible"
+        :name="name"
+        :logo="logo"
+        logo-type="image"
       />
       <ea-nav-menu
-          router
-          :data="navData"
-          v-model="active"
+        v-model="active"
+        router
+        :data="navData"
       />
     </template>
   </ea-admin>
@@ -110,6 +110,10 @@
             this.$router.push('/login');
             break;
         }
+      },
+      resize() {
+        // eslint-disable-next-line no-console
+        console.log('ea-resize');
       },
     },
     created() {

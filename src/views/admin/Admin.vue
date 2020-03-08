@@ -1,7 +1,3 @@
-<style scoped>
-</style>
-<style>
-</style>
 <template>
   <ea-view center class="ea-document">
     <admin-md>
@@ -10,13 +6,14 @@
           如配置请确保全局使用同一变量，此处控制默认配置
           <template slot="source">
             <el-switch
-                v-model="collapse"
-                active-text="折叠"
-                inactive-text="展开">
+              v-model="collapse"
+              active-text="折叠"
+              inactive-text="展开"
+            >
             </el-switch>
           </template>
           <template slot="highlight">
-            <collapse-md></collapse-md>
+            <collapse-md/>
           </template>
         </demo-block>
       </template>
@@ -26,14 +23,14 @@
           <p>如配置请确保全局使用同一变量，此处控制默认配置</p>
           <template slot="source">
             <el-switch
-                v-model="headerAutoHide"
-                active-text="启用"
-                inactive-text="关闭">
+              v-model="headerAutoHide"
+              active-text="启用"
+              inactive-text="关闭"
+            >
             </el-switch>
           </template>
           <template slot="highlight">
-            <header-auto-hide-md>
-            </header-auto-hide-md>
+            <header-auto-hide-md/>
           </template>
         </demo-block>
       </template>
@@ -45,6 +42,7 @@
             newValue</code> 改变
           </p>
         </div>
+        <document-table type="Events" :data="events"/>
       </template>
     </admin-md>
   </ea-view>
@@ -55,17 +53,17 @@
   import collapseMd from './collapse.md';
   import documentTable from '@/components/DocumentTable';
   import headerAutoHideMd from './header-auto-hide.md';
-  import attributes from './attributes'
+  import attributes from './attributes';
+  import events from './events.js';
 
   export default {
     name: 'Admin',
     components: {documentTable, adminMd, collapseMd, headerAutoHideMd},
-    props: {},
-    watch: {},
     data() {
       return {
         adminSlot,
         attributes,
+        events,
       };
     },
     computed: {
@@ -85,11 +83,6 @@
           this.$ea.config.headerAutoHide = v;
         },
       },
-    },
-    methods: {},
-    created() {
-    },
-    mounted() {
     },
   };
 </script>
