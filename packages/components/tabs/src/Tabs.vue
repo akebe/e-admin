@@ -251,8 +251,13 @@
           history.push(..._history);
         }
         if (!tabs.some(v => v.toPath === this.path)) {
-          let path = history.length ? history[history.length - 1][1] : this.mHome.path;
-          this.$router.push(path);
+          const path = history.length ? history[history.length - 1][1] : this.mHome.path,
+            tab = tabs.find(v => v.path === path);
+          if (tab) {
+            this.to(tab);
+          } else {
+            this.$router.push(path);
+          }
         }
       },
       /**
