@@ -1,4 +1,9 @@
 #更新日志
+####0.4.2
+`2020/03/15`
+[EaTabs](#/tabs) 修复tab的query参数在关闭回退时丢失的问题
+[EaImage](#/image) `v-bind="$attrs"`
+
 ####0.4.1
 `2020/03/08`
 [EaTabs](#/tabs) 
