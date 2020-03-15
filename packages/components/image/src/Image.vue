@@ -6,6 +6,7 @@
   >
     <img
       v-show="src && !loading && !isError"
+      v-bind="$attrs"
       class="_img"
       :src="src"
       :style="{'object-fit': this.fit}"
