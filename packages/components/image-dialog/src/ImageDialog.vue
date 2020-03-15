@@ -2,11 +2,12 @@
   <el-dialog
     v-on="$listeners"
     v-bind="$attrs"
+    class="ea-image-dialog"
     :title="title"
     :width="width"
     :close-on-click-modal="closeOnClickModal"
-    :visible.sync="visible"
-    class="ea-image-dialog"
+    :visible="visible"
+    @update:visible="v => $emit('update:visible', v)"
   >
     <div
       :class="dragClass"
@@ -77,7 +78,7 @@
           v-show="percent > 0"
           text-inside
           :percentage="percent"
-          :status="percent === 100 ? 'success' : ''"
+          :status="percent === 100 ? 'success' : undefined"
           :stroke-width="16"
         />
       </div>
