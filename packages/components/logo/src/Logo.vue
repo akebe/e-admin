@@ -1,13 +1,14 @@
 <template>
   <div :class="classes">
-    <div class="_logo" v-if="logo">
+    <div v-if="logo" class="_logo">
       <i v-if="logoType === 'icon'" :class="logo"/>
       <img v-else-if="logoType === 'image'" :src="logo"/>
     </div>
     <div
-        class="_name"
-        v-show="nameVisible"
-        :style="`text-align: ${logo ? 'left' : 'center'}`">
+      v-show="nameVisible"
+      class="_name"
+      :style="`text-align: ${logo ? 'left' : 'center'}`"
+    >
       {{ name }}
     </div>
   </div>
@@ -22,7 +23,6 @@
       collapse: [Boolean, String],
       theme: String,
     })],
-    components: {},
     props: {
       name: String,
       logo: {
@@ -35,10 +35,6 @@
         validator: v => ['icon', 'image'].includes(v),
       },
     },
-    watch: {},
-    data() {
-      return {};
-    },
     computed: {
       nameVisible() {
         return !this.mCollapse || !this.logo && Utils.strLen(this.name) < 7;
@@ -50,12 +46,6 @@
           '_only-logo': !this.name,
         };
       },
-    },
-    methods: {},
-    created() {
-
-    },
-    mounted() {
     },
   };
 </script>

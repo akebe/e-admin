@@ -46,13 +46,11 @@
       popover: Boolean,
       drag: Boolean,
     },
-    watch: {},
     data() {
       return {
         drop: false,
       };
     },
-    computed: {},
     methods: {
       dragleave(e) {
         if (this.drag) {
@@ -67,8 +65,6 @@
           this.$emit('dragenter', e);
         }
       },
-    },
-    created() {
     },
     mounted() {
       if (this.scroll && this.$parent.childrenMounted) {

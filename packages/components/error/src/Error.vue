@@ -4,7 +4,7 @@
       class="ea-error"
   >
     <svg>
-      <use :xlink:href="`#ea-icon-${code}`"></use>
+      <use :xlink:href="`#ea-icon-${code}`"/>
     </svg>
     <p>{{mMessage}}</p>
   </ea-view>
@@ -16,24 +16,14 @@
   };
   export default {
     name: 'Error',
-    components: {},
     props: {
       code: String,
       message: String,
-    },
-    watch: {},
-    data() {
-      return {};
     },
     computed: {
       mMessage() {
         return this.message || DefaultCodeMessage[this.code] || '未知错误';
       },
-    },
-    methods: {},
-    created() {
-    },
-    mounted() {
     },
   };
 </script>

@@ -1,47 +1,57 @@
 <template>
   <el-dialog
-      :title="title"
-      :width="width"
-      class="ea-image-dialog"
-      :close-on-click-modal="closeOnClickModal"
-      :visible.sync="visible"
-      v-on="$listeners"
-      v-bind="$attrs">
+    v-on="$listeners"
+    v-bind="$attrs"
+    :title="title"
+    :width="width"
+    :close-on-click-modal="closeOnClickModal"
+    :visible.sync="visible"
+    class="ea-image-dialog"
+  >
     <div
-        :class="dragClass"
-        @drop.prevent="onDrop"
-        @dragover.prevent="onDragover"
-        @dragleave.prevent="dragover = false">
+      :class="dragClass"
+      @drop.prevent="onDrop"
+      @dragover.prevent="onDragover"
+      @dragleave.prevent="dragover = false">
       <div class="_image">
         <ea-image
-            border
-            ref="image"
-            size="large"
-            :mask="isLoad"
-            :src="value"
-            fit="contain"
-            @load="isLoad = true"
-            :disabled="disabled"
-            :preview-src-list="isLoad ? [this.value] : []"
-            icon="el-icon-picture-outline">
+          border
+          ref="image"
+          size="large"
+          fit="contain"
+          icon="el-icon-picture-outline"
+          :mask="isLoad"
+          :src="value"
+          :disabled="disabled"
+          :preview-src-list="isLoad ? [this.value] : []"
+          @load="isLoad = true"
+        >
           <template v-slot:mask>
             <a class="el-icon-picture-outline" title="查看大图" @click="preview"/>
             <a class="el-icon-delete" title="清空" @click="value = ''"/>
           </template>
         </ea-image>
       </div>
-      <el-tabs v-model="activeType" @tab-click="handleClick" tab-position="left">
-        <el-tab-pane :disabled="!types.includes('device')" label="从本地上传" name="device">
+      <el-tabs
+        v-model="activeType"
+        tab-position="left"
+        @tab-click="handleClick"
+      >
+        <el-tab-pane
+          label="从本地上传"
+          name="device"
+          :disabled="!types.includes('device')"
+        >
           <el-upload
-              ref="upload"
-              :name="name"
-              :headers="headers"
-              :action="action"
-              :accept="accept"
-              :on-progress="handleProgress"
-              :on-success="handleSuccess"
-              :show-file-list="false">
-            <el-button icon="el-icon-folder-opened" slot="trigger" :size="size" type="success">选择文件</el-button>
+            ref="upload"
+            :name="name"
+            :headers="headers"
+            :action="action"
+            :accept="accept"
+            :on-progress="handleProgress"
+            :on-success="handleSuccess"
+            :show-file-list="false">
+            <el-button icon="el-icon-folder-opened" slot="trigger" type="success" :size="size">选择文件</el-button>
             <template v-slot:tip>
               <slot name="device-tip">
                 <div class="el-upload__tip">只能上传图片文件，且不超过1500kb</div>
@@ -51,10 +61,11 @@
         </el-tab-pane>
         <el-tab-pane :disabled="!types.includes('web')" label="使用网络图片" name="web">
           <el-input
-              size="small"
-              :placeholder="placeholder"
-              clearable
-              v-model="value">
+            v-model="value"
+            size="small"
+            clearable
+            :placeholder="placeholder"
+          >
           </el-input>
           <slot name="web-tip">
             <div class="el-upload__tip">使用网络图片地址</div>
@@ -63,18 +74,30 @@
       </el-tabs>
       <div class="_progress">
         <el-progress
-            v-show="percent > 0"
-            :percentage="percent"
-            :status="percent === 100 ? 'success' : ''"
-            text-inside
-            :stroke-width="16"
+          v-show="percent > 0"
+          text-inside
+          :percentage="percent"
+          :status="percent === 100 ? 'success' : ''"
+          :stroke-width="16"
         />
       </div>
       <div class="el-upload__tip">可以将图片拖到此处上传</div>
     </div>
     <div slot="footer">
-      <el-button :size="size" @click="cancel">取 消</el-button>
-      <el-button type="primary" :size="size" icon="el-icon-picture-outline" @click="confirm">确 定</el-button>
+      <el-button
+        :size="size"
+        @click="cancel"
+      >
+        取 消
+      </el-button>
+      <el-button
+        type="primary"
+        icon="el-icon-picture-outline"
+        :size="size"
+        @click="confirm"
+      >
+        确 定
+      </el-button>
     </div>
   </el-dialog>
 </template>
@@ -212,16 +235,11 @@
         } else {
           this.$message.warning('请选择正确图片！');
         }
-
       },
       cancel() {
         this.$emit('cancel', this.value);
         this.$emit('update:visible', false);
       },
-    },
-    created() {
-    },
-    mounted() {
     },
   };
 </script>

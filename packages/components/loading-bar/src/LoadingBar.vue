@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div :class="classes" :style="outerStyles" v-show="show">
-      <div :class="innerClasses" :style="styles"></div>
+    <div v-show="show" :class="classes" :style="outerStyles">
+      <div :class="innerClasses" :style="styles"/>
     </div>
   </transition>
 </template>

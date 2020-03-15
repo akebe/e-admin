@@ -74,7 +74,6 @@
       collapse: [Boolean, String],
       home: Object,
     })],
-    components: {},
     directives: {
       longpress,
     },
@@ -299,9 +298,6 @@
       this.$nextTick(() => {
         this.handleArrow();
       });
-      window.addEventListener('resize', () => {
-        this.handleArrow();
-      });
       this.$ea.$on('collapse', () => {
         setTimeout(() => {
           this.handleArrow();
@@ -313,6 +309,10 @@
           this.tabsClose([tab]);
         }
       };
+      window.addEventListener('resize', this.handleArrow);
+    },
+    beforeDestroy() {
+      window.removeEventListener('resize', this.handleArrow);
     },
   };
 </script>

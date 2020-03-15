@@ -1,61 +1,63 @@
 <template>
   <div class="ea-header">
     <div
-        class="ea-hover"
-        v-if="collapse !== 'false'"
-        @click="mCollapse = !mCollapse">
-      <i :class="`ea-icon-page-arrow-${mCollapse ? 'right' : 'left'}`"></i>
+      v-if="collapse !== 'false'"
+      class="ea-hover"
+      @click="mCollapse = !mCollapse"
+    >
+      <i :class="`ea-icon-page-arrow-${mCollapse ? 'right' : 'left'}`"/>
     </div>
     <div>
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item
-            v-for="route in breadcrumbs"
-            :key="route.path"
-            :to="route.disabled ? undefined : route.path"
+          v-for="route in breadcrumbs"
+          :key="route.path"
+          :to="route.disabled ? undefined : route.path"
         >
           {{ route.label || route.title }}
         </el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <div class="_center">
-      <slot></slot>
+      <slot/>
     </div>
     <el-tooltip
-        v-if="notice !== false"
-        effect="dark"
-        :content="noticeContent"
-        placement="bottom">
+      v-if="notice !== false"
+      :content="noticeContent"
+      effect="dark"
+      placement="bottom"
+    >
       <div class="ea-hover" @click="command('notice')">
         <el-badge
-            :value="typeof notice !== 'boolean' ? notice : ''"
-            :is-dot="notice === true"
-            :max="99"
-            class="_badge">
+          :value="typeof notice !== 'boolean' ? notice : ''"
+          :is-dot="notice === true"
+          :max="99"
+          class="_badge">
         </el-badge>
-        <i class="ea-icon-notices"></i>
+        <i class="ea-icon-notices"/>
       </div>
     </el-tooltip>
     <el-tooltip
-        v-if="fullscreen"
-        effect="dark"
-        :content="!screenfull ? '全屏' : '还原'"
-        placement="bottom">
+      v-if="fullscreen"
+      :content="!screenfull ? '全屏' : '还原'"
+      effect="dark"
+      placement="bottom">
       <div class="ea-hover" @click="fullScreen">
-        <i :class="`ea-icon-fullscreen${screenfull ? '-exit' : ''}`"></i>
+        <i :class="`ea-icon-fullscreen${screenfull ? '-exit' : ''}`"/>
       </div>
     </el-tooltip>
     <div class="ea-hover">
-      <el-dropdown @command="command" slot="reference" trigger="click">
+      <el-dropdown slot="reference" trigger="click" @command="command">
         <a>
           <span>{{ user.name }}</span>
-          <i class="el-icon-arrow-down el-icon--right"></i>
+          <i class="el-icon-arrow-down el-icon--right"/>
         </a>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item
-              v-for="item in dropdownMenu"
-              :command="item.value"
-              :key="item.value"
-              :divided="item.divided">
+            v-for="item in dropdownMenu"
+            :command="item.value"
+            :key="item.value"
+            :divided="item.divided">
             {{ item.label }}
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -73,7 +75,6 @@
       collapse: [Boolean, String],
       home: Object,
     })],
-    components: {},
     props: {
       navData: {
         type: Array,
@@ -104,7 +105,6 @@
         ],
       },
     },
-    watch: {},
     data() {
       return {
         screenfull: false,

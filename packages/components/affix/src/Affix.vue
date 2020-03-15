@@ -3,7 +3,7 @@
     <div ref="point" :class="classes" :style="styles">
       <slot/>
     </div>
-    <div v-show="slot" :style="slotStyle"></div>
+    <div v-show="slot" :style="slotStyle"/>
   </div>
 </template>
 <script>
@@ -34,7 +34,6 @@
 
   export default {
     name: 'EaAffix',
-    components: {},
     props: {
       affix: {
         type: Boolean,
@@ -146,8 +145,6 @@
           this.styles.left = `${elOffset.left}px`;
         }
       },
-    },
-    created() {
     },
     mounted() {
       window.addEventListener('scroll', this.handleScroll, false);

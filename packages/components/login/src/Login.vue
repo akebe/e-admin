@@ -2,68 +2,70 @@
   <div class="ea-login">
     <div class="_main">
 
-      <img :src="logo" class="_logo">
+      <img :src="logo" class="_logo"/>
 
       <el-menu
-          :default-active="login.type"
-          mode="horizontal"
-          @select="type => login.type = type">
+        mode="horizontal"
+        :default-active="login.type"
+        @select="type => login.type = type">
         <el-menu-item
-            v-for="item in types"
-            :key="item.index"
-            :index="item.index">
+          v-for="item in types"
+          :key="item.index"
+          :index="item.index">
           {{ item.label }}
         </el-menu-item>
       </el-menu>
 
       <div class="_form">
-        <el-form ref="user" v-if="login.type === 'user'">
+        <el-form v-if="login.type === 'user'" ref="user">
           <el-form-item>
             <el-input
-                placeholder="用户名/手机号"
-                v-model="login.user">
-            </el-input>
+              v-model="login.user"
+              placeholder="用户名/手机号"
+            />
           </el-form-item>
           <el-form-item>
             <el-input
-                placeholder="密码"
-                :type="showPassword ? 'text' : 'password'"
-                @keyup.native.enter="submit"
-                v-model="login.pwd">
+              v-model="login.pwd"
+              placeholder="密码"
+              :type="showPassword ? 'text' : 'password'"
+              @keyup.native.enter="submit"
+            >
               <el-switch
-                  slot="suffix"
-                  v-model="showPassword">
-              </el-switch>
+                v-model="showPassword"
+                slot="suffix"
+              />
             </el-input>
           </el-form-item>
           <el-form-item>
             <el-button
-                type="primary"
-                @click="submit"
-                :disabled="!login.user || !login.pwd">
+              type="primary"
+              :disabled="!login.user || !login.pwd"
+              @click="submit"
+            >
               登 录
             </el-button>
           </el-form-item>
         </el-form>
-        <el-form ref="mobile" v-else-if="login.type === 'mobile'">
+        <el-form v-else-if="login.type === 'mobile'" ref="mobile">
           <el-form-item>
             <el-input
-                placeholder="手机号码"
-                v-model="login.mobile">
-            </el-input>
+              v-model="login.mobile"
+              placeholder="手机号码"
+            />
           </el-form-item>
           <el-form-item>
             <el-row :gutter="15">
               <el-col :span="15">
                 <el-input
-                    placeholder="验证码"
-                    v-model="login.code">
-                </el-input>
+                  v-model="login.code"
+                  placeholder="验证码"
+                />
               </el-col>
               <el-col :span="9">
                 <el-button
-                    :disabled="countdown > 0"
-                    @click="sendCode">
+                  :disabled="countdown > 0"
+                  @click="sendCode">
                   {{ countdown > 0 ? `${countdown} s` : '获取验证码' }}
                 </el-button>
               </el-col>
@@ -71,9 +73,9 @@
           </el-form-item>
           <el-form-item>
             <el-button
-                type="primary"
-                @click="submit"
-                :disabled="!isSuccessMobile || !login.code">
+              type="primary"
+              @click="submit"
+              :disabled="!isSuccessMobile || !login.code">
               登 录
             </el-button>
           </el-form-item>
@@ -87,12 +89,11 @@
   </div>
 </template>
 <script>
-  import logo from '../../../assets/logo.svg'
-  import Utils from '../../../utils/index'
+  import logo from '../../../assets/logo.svg';
+  import Utils from '../../../utils/index';
 
   export default {
     name: 'EaLogin',
-    components: {},
     props: {
       copyright: {
         type: String,
@@ -184,10 +185,6 @@
           callback();
         }
       },
-    },
-    created() {
-    },
-    mounted() {
     },
   };
 </script>

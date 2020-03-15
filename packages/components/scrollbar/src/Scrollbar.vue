@@ -5,9 +5,9 @@
     </div>
     <div
       v-show="barVisible"
+      ref="bar"
       :class="`ea-scrollbar__bar ${barActive ? 'active' : ''}`"
       :style="barStyle"
-      ref="bar"
     />
   </div>
 </template>

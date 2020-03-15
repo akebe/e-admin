@@ -8,7 +8,6 @@
       collapse: [Boolean, String],
       theme: String,
     })],
-    components: {},
     props: {
       data: {
         type: Array,
@@ -20,7 +19,6 @@
         default: false,
       },
     },
-    watch: {},
     data() {
       return {
         otherHeight: '',
@@ -161,8 +159,6 @@
         },
         [menu],
       );
-    },
-    created() {
     },
     mounted() {
       window.addEventListener('resize', this.resize);

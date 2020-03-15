@@ -1,8 +1,10 @@
 <template>
-  <div :class="classes"
-       :style="mStyle"
-       v-loading="loading"
-       :element-loading-text="loadingText">
+  <div
+    v-loading="loading"
+    :class="classes"
+    :style="mStyle"
+    :element-loading-text="loadingText"
+  >
     <slot :keys="keys" :active="active"/>
     <slot name="backtop">
       <el-backtop v-if="backtop"/>
@@ -12,7 +14,6 @@
 <script>
   export default {
     name: 'EaView',
-    components: {},
     props: {
       loading: {
         type: Boolean,
@@ -48,7 +49,6 @@
         default: '',
       },
     },
-    watch: {},
     data() {
       return {
         scrollTop: {},

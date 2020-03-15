@@ -43,7 +43,6 @@
 
   export default {
     name: 'EaImage',
-    components: {},
     props: {
       border: [Boolean, String],
       disabled: Boolean,
