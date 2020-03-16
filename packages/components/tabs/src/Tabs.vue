@@ -172,12 +172,12 @@
       },
       getTabByNavData(ary, path) {
         for (let item of ary) {
-          if (item.path === path) {
-            return item;
-          } else if (item.children) {
+          let success = item.path === path;
+          if (item.children) {
             const tab = this.getTabByNavData(item.children, path);
             if (tab) return tab;
           }
+          if (success) return item;
         }
       },
       childrenMounted(vm) {

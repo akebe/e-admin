@@ -137,13 +137,16 @@
     methods: {
       getBreadcrumbByNavData(ary, path, list = []) {
         for (let item of ary) {
+          let success = false;
           if (item.path === path) {
             list.push(item);
-            return list;
-          } else if (item.children) {
-            const _list = this.getBreadcrumbByNavData(item.children, path, [...list, item]);
+            success = true;
+          }
+          if (item.children) {
+            const _list = this.getBreadcrumbByNavData(item.children, path, success ? [...list] : [...list, item]);
             if (_list) return _list;
           }
+          if (success) return list;
         }
       },
       command(v) {
