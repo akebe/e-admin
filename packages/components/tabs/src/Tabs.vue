@@ -283,9 +283,10 @@
     created() {
       if (this.storage) {
         try {
-          const tabs = window.localStorage.getItem(`${this.storage}${StorageKey}`);
+          let tabs = window.localStorage.getItem(`${this.storage}${StorageKey}`);
           if (tabs) {
-            this.tabs.push(...JSON.parse(tabs));
+            tabs = JSON.parse(tabs);
+            this.tabs.push(...tabs.filter(v => !this.tabs.some(tab => v.toPath === tab.toPath)));
           }
         } catch (e) {
           // eslint-disable-next-line no-console
