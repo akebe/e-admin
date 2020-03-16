@@ -1,4 +1,9 @@
 #更新日志
+####0.4.3
+`2020/03/16`
+[EaTabs](#/tabs) 当`nav-data`匹配多个同名`path`时，会命中最深的那个
+[EaHeader](#/header) 当`nav-data`匹配多个同名`path`时，`breadcrumbs`会命中最深的那个
+
 ####0.4.2
 `2020/03/15`
 [EaTabs](#/tabs) 修复tab的query参数在关闭回退时丢失的问题
