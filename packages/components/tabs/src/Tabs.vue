@@ -251,7 +251,7 @@
         }
         if (!tabs.some(v => v.toPath === this.path)) {
           const path = history.length ? history[history.length - 1][1] : this.mHome.path,
-            tab = tabs.find(v => v.path === path);
+            tab = tabs.find(v => v.toPath === path);
           if (tab) {
             this.to(tab);
           } else {
