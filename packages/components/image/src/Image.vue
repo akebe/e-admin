@@ -23,6 +23,7 @@
         <i class="el-icon-warning-outline"/>
       </slot>
     </span>
+    <slot/>
     <div class="_mask" v-if="mask">
       <slot name="mask"/>
     </div>
