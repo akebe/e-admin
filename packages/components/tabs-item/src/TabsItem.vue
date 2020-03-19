@@ -18,7 +18,7 @@
       @dragend="$emit('dragend', $event)"
       @drop="drop = false"
     >
-      <span class="_title">
+      <span class="_title" :style="title ? 'padding-right: 5px' : ''">
         <i v-if="icon" :class="`_icon ${icon}`"/>
         <img v-else-if="src" :src="src" class="_icon" draggable="false"/>
         {{ title }}

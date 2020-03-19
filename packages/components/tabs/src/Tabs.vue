@@ -12,7 +12,11 @@
         icon="el-icon-d-arrow-left"
         @click="arrowLeft(100)"
       />
-      <div class="_scroll" ref="scroll">
+      <div
+        class="_scroll"
+        ref="scroll"
+        :style="path === mHome.path && !arrowX ? `box-shadow: -2px 0 4px 0 rgba(0, 0, 0, .12);` : ''"
+      >
         <div class="_nav" :style="`transform: translateX(${arrowX}px)`">
           <ea-tabs-item
             scroll
