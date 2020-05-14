@@ -83,7 +83,7 @@ function vmCreate() {
           vm.visible = false;
           queueHandle();
         });
-        vm.$children[0].$on('closed', () => {
+        vm.$children[0].$on('close', () => {
           vm.visible = false;
           queueHandle();
         });
