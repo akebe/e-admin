@@ -12,7 +12,12 @@ function markdownLoader(val) {
     v = v.replace(/_&/g, ' ').replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
     return v;
   });
-  // id解析方案 ###(#jump)标题标题 => <h3 id="jump">标题标题</>
+  /**
+   * id解析方案
+   * markdown  ###(#item-1)标题
+   * html      <h3 id="item-1">标题</>
+   * @type {string}
+   */
   html = html.replace(/>\(#[\s\S]*?\)/gi, v => {
     const id = v.substr(3, v.length - 4);
     return ` id="${id}">`;
