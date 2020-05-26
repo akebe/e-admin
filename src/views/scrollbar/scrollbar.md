@@ -11,7 +11,7 @@
 使用方式
 
 ```
-<ea-scrollbar style="height: 300px;">
+<ea-scrollbar style="max-height: 300px;">
   <!-- your html -->
 </ea-scrollbar>
 ```
