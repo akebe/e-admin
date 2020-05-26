@@ -7,7 +7,7 @@
             <ea-scrollbar
               ref="scrollbar"
               class="flex-body bord"
-              style="height: 300px;">
+              style="max-height: 300px;">
               <div
                 v-for="i in data.size"
                 :key="i"
