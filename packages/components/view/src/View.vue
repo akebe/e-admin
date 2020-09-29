@@ -5,7 +5,7 @@
     :style="mStyle"
     :element-loading-text="loadingText"
   >
-    <slot :keys="keys" :active="active"/>
+    <slot :keys="keys" :active="active" @ea-view="deepView  = false"/>
     <slot name="backtop">
       <el-backtop v-if="backtop"/>
     </slot>
@@ -54,6 +54,7 @@
         scrollTop: {},
         keys: [],
         active: '',
+        deepEaView: 0,  // 标识嵌套ea-view 0表示最深
       };
     },
     computed: {
@@ -89,7 +90,9 @@
         if (parentName === from.name) {
           const path = from.path;
           this.scrollTop[path] = document.documentElement.scrollTop || document.body.scrollTop;
-          this.$parent.$parent.bodyClass = '';
+        }
+        if (parentName === from.name || !this.deepEaView && (from.matched || []).some(v => v.name === parentName)) {
+          this.setBodyClass('');
         }
         next();
       },
@@ -107,7 +110,9 @@
             if (key && !this.keys.includes(key)) this.keys.push(key);
             this.active = key;
           }
-          this.$parent.$parent.bodyClass = this.bodyClass;
+        }
+        if (parentName === to.name || !this.deepEaView && (to.matched || []).some(v => v.name === parentName)) {
+          this.setBodyClass(this.bodyClass);
         }
       },
       tabsCloseAfter(tab) {
@@ -120,6 +125,25 @@
               this.keys.splice(index, 1);
             }
           }
+        }
+      },
+      handleDeepEaView(mounted) {
+        let $parent = this.$parent;
+        while ($parent) {
+          if ($parent.$options._componentTag === 'ea-view') {
+            $parent.deepEaView += mounted ? 1 : -1;
+          }
+          $parent = $parent.$parent;
+        }
+      },
+      setBodyClass(className) {
+        let $parent = this.$parent;
+        while ($parent) {
+          if ($parent.$options._componentTag === 'ea-admin') {
+            $parent.bodyClass = className;
+            return;
+          }
+          $parent = $parent.$parent;
         }
       },
     },
@@ -136,6 +160,8 @@
       document.documentElement.scrollTop = document.body.scrollTop = 0;
 
       this.$ea.$on('tabs-close-after', this.tabsCloseAfter);
+
+      this.handleDeepEaView(true);
     },
     beforeDestroy() {
       // 解除 beforeEach
@@ -150,6 +176,8 @@
       }
 
       this.$ea.$off('tabs-close-after', this.tabsCloseAfter);
+
+      this.handleDeepEaView(false);
     },
   };
 </script>
