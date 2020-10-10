@@ -1,4 +1,8 @@
 #更新日志
+####0.4.9
+`2020/10/10`
+[EaView](#/header) `EaHeader`的`dropdown-menu`支持所有`Dropdown Menu Item Attributes`
+
 ####0.4.8
 `2020/09/29`
 [EaView](#/view) 修复`ea-view`在嵌套路由下`bodyClass`无效的问题

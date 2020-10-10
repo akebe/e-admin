@@ -56,8 +56,11 @@
           <el-dropdown-item
             v-for="item in dropdownMenu"
             :command="item.value"
+            :disabled="item.disabled"
+            :divided="item.divided"
             :key="item.value"
-            :divided="item.divided">
+            :icon="item.icon"
+          >
             {{ item.label }}
           </el-dropdown-item>
         </el-dropdown-menu>
