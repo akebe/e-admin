@@ -56,6 +56,7 @@ const EaConfig = {
   page: {
     history: [],
     tabs: [],
+    tabParentKeepAlive: [],
   },
   /**
    * 首页路由配置

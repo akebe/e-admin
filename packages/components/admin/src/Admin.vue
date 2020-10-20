@@ -113,8 +113,8 @@
         return `_body ${this.bodyClass}`;
       },
       include() {
-        const tabs = this.$ea.config.page.tabs;
-        return [this.mHome.name].concat(tabs.map(v => v.name));
+        const {tabs, tabParentKeepAlive} = this.$ea.config.page;
+        return [this.mHome.name].concat(tabs.map(v => v.name)).concat(tabParentKeepAlive.map(v => v.name));
       },
     },
     methods: {

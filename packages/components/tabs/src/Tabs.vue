@@ -109,10 +109,11 @@
       },
     },
     data() {
-      const {tabs, history} = this.$ea.config.page;
+      const {tabs, tabParentKeepAlive, history} = this.$ea.config.page;
       return {
         tabs,
         history,
+        tabParentKeepAlive,
         active: '',
         children: [],
         arrowWidth: 0,
@@ -164,7 +165,29 @@
             if (typeof tab.onOpen === 'function') {
               tab.onOpen(tab, first);
             }
+            this.handleTabParentKeepAlive(to, tab);
           });
+        }
+      },
+      handleTabParentKeepAlive(to, tab) {
+        const {tabParentKeepAlive} = this;
+        let index = 0;
+        for (const matched of to.matched) {
+          if (matched.name === tab.name) break;
+          if (index && matched.name && matched.path !== this.mHome.path && !matched.meta.childrenAgent) {
+            let alive = tabParentKeepAlive.find(v => v.name === matched.name);
+            if (!alive) {
+              alive = {
+                name: matched.name,
+                children: [],
+              };
+              tabParentKeepAlive.push(alive);
+            }
+            if (!alive.children.includes(tab.path)) {
+              alive.children.push(tab.path);
+            }
+          }
+          index += 1;
         }
       },
       getTab(matched) {
@@ -237,7 +260,7 @@
         }
       },
       async tabsClose(_tabs) {
-        const {tabs, history} = this;
+        const {tabs, history, tabParentKeepAlive} = this;
         for (let tab of _tabs) {
           if (await this.tabsCloseBefore(tab)) {
             const index = tabs.indexOf(tab);
@@ -245,6 +268,14 @@
             this.$ea.$emit('tabs-close-after', tab);
             if (typeof tab.onClose === 'function') {
               tab.onClose(tab);
+            }
+            const aliveIndex = tabParentKeepAlive.findIndex(v => v.children.includes(tab.path));
+            if (aliveIndex > -1) {
+              const alive = tabParentKeepAlive[index];
+              alive.children.splice(alive.children.indexOf(tab.path), 1);
+              if (!alive.children.length) {
+                tabParentKeepAlive.splice(aliveIndex, 1);
+              }
             }
           }
         }

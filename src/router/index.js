@@ -1,3 +1,6 @@
+import TestChild from '@/views/test/TestChild.vue';
+import Test from '@/views/test/Test.vue';
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import RouterEach from './router-each';
@@ -167,6 +170,18 @@ const router = new VueRouter({
           path: '/scrollbar',
           name: 'Scrollbar',
           component: Scrollbar,
+        },
+        {
+          path: '/test',
+          name: 'Test',
+          component: Test,
+          children: [
+            {
+              path: '/test/child',
+              name: 'TestChild',
+              component: TestChild,
+            },
+        ]
         },
         ...Router,
         {

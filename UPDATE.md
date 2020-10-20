@@ -2,6 +2,9 @@
 ####0.4.9
 `2020/10/10`
 [EaView](#/header) `EaHeader`的`dropdown-menu`支持所有`Dropdown Menu Item Attributes`
+####0.4.10
+`2020/10/20`
+修复深层路由`keep-alive`无法正确缓存的问题
 
 ####0.4.8
 `2020/09/29`
