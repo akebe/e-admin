@@ -272,9 +272,11 @@
             const aliveIndex = tabParentKeepAlive.findIndex(v => v.children.includes(tab.path));
             if (aliveIndex > -1) {
               const alive = tabParentKeepAlive[index];
-              alive.children.splice(alive.children.indexOf(tab.path), 1);
-              if (!alive.children.length) {
-                tabParentKeepAlive.splice(aliveIndex, 1);
+              if (alive){
+                alive.children.splice(alive.children.indexOf(tab.path), 1);
+                if (!alive.children.length) {
+                  tabParentKeepAlive.splice(aliveIndex, 1);
+                }
               }
             }
           }
