@@ -1,10 +1,15 @@
 #更新日志
-####0.4.9
-`2020/10/10`
-[EaView](#/header) `EaHeader`的`dropdown-menu`支持所有`Dropdown Menu Item Attributes`
+####0.4.11
+`2020/10/21`
+[EaView](#/view) 添加配置项`scroll-record-children`，如果ea-view作为路由组件，它的子路由滚动条默认不被记录 这里可以传入子路由组件名 用于记录滚动条高度
+
 ####0.4.10
 `2020/10/20`
 修复深层路由`keep-alive`无法正确缓存的问题
+
+####0.4.9
+`2020/10/10`
+[EaView](#/header) `EaHeader`的`dropdown-menu`支持所有`Dropdown Menu Item Attributes`
 
 ####0.4.8
 `2020/09/29`

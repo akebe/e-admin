@@ -28,6 +28,13 @@ export default [
     default: 'true',
   },
   {
+    prop: 'scroll-record-children',
+    desc: '如果ea-view作为路由组件，它的子路由滚动条默认不被记录 这里可以传入子路由组件名 用于记录滚动条高度',
+    type: 'String / Array',
+    enum: '-',
+    default: 'true',
+  },
+  {
     prop: 'default-class',
     desc: '是否使用默认样式',
     type: 'Boolean',
@@ -37,7 +44,7 @@ export default [
   {
     prop: 'padding',
     desc: '页面padding，默认单位px',
-    type: 'Number / Number',
+    type: 'Number / String',
     enum: '-',
     default: '10',
   },

@@ -27,10 +27,11 @@
         type: [Boolean, Number, String],
         default: false,
       },
-      scrollRecord: { //是否记录滚动条高度
+      scrollRecord: {                        // 是否记录滚动条高度
         type: Boolean,
         default: true,
       },
+      scrollRecordChildren: [String, Array], // 如果ea-view作为路由组件，它的子路由高度默认不被记录 这里可以传入子路由组件名 用于记录滚动条高度
       defaultClass: {
         type: Boolean,
         default: true,
@@ -87,7 +88,8 @@
     methods: {
       beforeEach(to, from, next) {
         const parentName = this.$parent.$options.name;
-        if (parentName === from.name) {
+        const childrenName = Array.isArray(this.scrollRecordChildren) ? this.scrollRecordChildren : [this.scrollRecordChildren];
+        if (parentName === from.name || childrenName.includes(from.name)) {
           const path = from.path;
           this.scrollTop[path] = document.documentElement.scrollTop || document.body.scrollTop;
         }
@@ -98,7 +100,8 @@
       },
       afterEach(to) {
         const parentName = this.$parent.$options.name;
-        if (parentName === to.name) {
+        const childrenName = Array.isArray(this.scrollRecordChildren) ? this.scrollRecordChildren : [this.scrollRecordChildren];
+        if (parentName === to.name || childrenName.includes(to.name)) {
           if (this.scrollRecord) {
             const path = to.path;
             this.$nextTick(() => {

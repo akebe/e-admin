@@ -2,12 +2,12 @@
   <div>
     child
     <el-input v-model="input" placeholder="placeholder"></el-input>
-    <div style="height: 2000px">child child</div>
+    <div style="height: 2000px">child 1</div>
   </div>
 </template>
 <script>
   export default {
-    name: 'TestChild',
+    name: 'TestChild1',
     data() {
       return {
         input:''

@@ -1,6 +1,3 @@
-import TestChild from '@/views/test/TestChild.vue';
-import Test from '@/views/test/Test.vue';
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import RouterEach from './router-each';
@@ -46,6 +43,13 @@ const ImageDialog = () =>
   import ( /* webpackChunkName: "ea-image-dialog" */ '@/views/image-dialog/ImageDialog.vue');
 const Scrollbar = () =>
   import ( /* webpackChunkName: "ea-scrollbar" */ '@/views/scrollbar/Scrollbar.vue');
+
+const Test = () =>
+  import ( /* webpackChunkName: "test" */ '@/views/test/Test.vue');
+const TestChild = () =>
+  import ( /* webpackChunkName: "test" */ '@/views/test/TestChild.vue');
+const TestChild1 = () =>
+  import ( /* webpackChunkName: "test" */ '@/views/test/TestChild1.vue');
 
 Vue.use(VueRouter);
 
@@ -181,7 +185,12 @@ const router = new VueRouter({
               name: 'TestChild',
               component: TestChild,
             },
-        ]
+            {
+              path: '/test/child1',
+              name: 'TestChild1',
+              component: TestChild1,
+            },
+          ],
         },
         ...Router,
         {

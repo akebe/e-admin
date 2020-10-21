@@ -1,5 +1,5 @@
 <template>
-  <ea-view center>
+  <ea-view center :scroll-record-children="['TestChild', 'TestChild1']">
     test
     <div>
       <keep-alive>
