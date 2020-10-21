@@ -183,8 +183,8 @@
               };
               tabParentKeepAlive.push(alive);
             }
-            if (!alive.children.includes(tab.path)) {
-              alive.children.push(tab.path);
+            if (!alive.children.includes(tab)) {
+              alive.children.push(tab);
             }
           }
           index += 1;
@@ -269,14 +269,11 @@
             if (typeof tab.onClose === 'function') {
               tab.onClose(tab);
             }
-            const aliveIndex = tabParentKeepAlive.findIndex(v => v.children.includes(tab.path));
-            if (aliveIndex > -1) {
-              const alive = tabParentKeepAlive[index];
-              if (alive){
-                alive.children.splice(alive.children.indexOf(tab.path), 1);
-                if (!alive.children.length) {
-                  tabParentKeepAlive.splice(aliveIndex, 1);
-                }
+            const alive = tabParentKeepAlive.find(v => v.children.some(v => v.path === tab.path));
+            if (alive) {
+              alive.children.splice(alive.children.findIndex(v => v.path === tab.path), 1);
+              if (!alive.children.length) {
+                tabParentKeepAlive.splice(tabParentKeepAlive.indexOf(alive), 1);
               }
             }
           }

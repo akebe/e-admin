@@ -1,6 +1,6 @@
 {
   "name": "e-admin",
-  "version": "0.4.12",
+  "version": "0.4.13",
   "main": "lib/index.umd.min.js",
   "style": "lib/index.css",
   "typings": "types/index.d.ts",
